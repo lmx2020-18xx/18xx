@@ -268,7 +268,7 @@ module View
         end
 
         auto = lambda do
-          router = Engine::AutoRouter.new(@game, flash)
+          router = Engine::AutoRouter.new(@game, flash, participant: participant?)
           store(:autorouter_running, true, skip: true)
           store(:autorouter, router)
           router.compute(

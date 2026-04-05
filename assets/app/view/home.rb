@@ -15,10 +15,15 @@ module View
     include GameManager
     include Lib::Settings
 
+    @@autoroute_cache_swept = false
+
     needs :user
     needs :refreshing, default: nil, store: true
 
+    CACHE_MAX_AGE = 14 * 24 * 60 * 60 # 2 weeks in seconds
+
     def render
+      sweep_stale_autoroute_cache
       your_games, other_games = @games.partition { |game| user_in_game?(@user, game) || user_owns_game?(@user, game) }
 
       children = [
@@ -103,6 +108,22 @@ module View
     def render_filter_row(children)
       filter_row = h(GameRowFilters)
       children << filter_row if filter_row
+    end
+
+    def sweep_stale_autoroute_cache
+      return if @@autoroute_cache_swept
+
+      @@autoroute_cache_swept = true
+      now = Time.now.to_i
+      Lib::Storage.all_keys.each do |key|
+        next unless key.start_with?('autoroute_cache_')
+
+        entry = Lib::Storage[key]
+        next if !entry.is_a?(Hash) || !entry['ts']
+
+        Lib::Storage.delete(key) if now - entry['ts'] > CACHE_MAX_AGE
+      end
+    rescue StandardError # rubocop:disable Lint/SuppressedException
     end
   end
 end

@@ -71,9 +71,24 @@ module View
         h('div.margined', end_game)
       end
 
+      def clear_autoroute_cache
+        clear = lambda do
+          prefix = "autoroute_cache_#{@game.id}_"
+          keys = Lib::Storage.all_keys.select { |k| k.start_with?(prefix) }
+          keys.each { |k| Lib::Storage.delete(k) }
+          store(:flash_opts, { message: "Cleared #{keys.size} autoroute cache entries" }, skip: false)
+        end
+
+        h('div.margined', [
+          h(:button, { on: { click: clear } }, 'Clear Autoroute Cache'),
+          h(:label, 'Remove cached autoroute data for this game'),
+        ])
+      end
+
       def render_tools
         children = [player_notification, master_mode]
         children << end_game unless @game.finished
+        children << clear_autoroute_cache
         children
       end
 

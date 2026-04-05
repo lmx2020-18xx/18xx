@@ -66,6 +66,11 @@ module View
         @game_data[:mode] == :hotseat
       end
 
+      def cleanup_autoroute_cache(game)
+        prefix = "autoroute_cache_#{game.id}_"
+        Lib::Storage.all_keys.select { |k| k.start_with?(prefix) }.each { |k| Lib::Storage.delete(k) }
+      end
+
       def process_action(action)
         if @game.exception
           msg = 'This game is broken and cannot accept any new actions. If '\
@@ -111,6 +116,8 @@ module View
           @game_data[:manually_ended] = game.manually_ended
           @game_data[:status] = 'finished'
           @game_data[:game_end_reason] = game.game_end_reason
+          # Clean up autoroute cache for this game
+          cleanup_autoroute_cache(game)
         else
           @game_data[:result] = {}
           @game_data[:status] = 'active'

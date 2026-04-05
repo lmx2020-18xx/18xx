@@ -9,11 +9,17 @@ module Engine
   class AutoRouter
     attr_accessor :running
 
-    def initialize(game, flash = nil)
+    CACHE_ENABLED = RUBY_ENGINE == 'opal'
+    CACHE_ROUTE_CAP = 1000
+    CACHE_MAX_ENTRIES_PER_CORP = 3
+    CACHE_STOPS_THRESHOLD = 11
+
+    def initialize(game, flash = nil, participant: false)
       @game = game
       @train_autoroute_group = @game.class::TRAIN_AUTOROUTE_GROUPS
       @next_hexside_bit = 0
       @flash = flash
+      @participant = participant
     end
 
     def compute(corporation, **opts)
@@ -46,6 +52,54 @@ module Engine
       static = opts[:routes] || []
       path_timeout = opts[:path_timeout] || 30
       route_limit = opts[:route_limit] || 10_000
+
+      # Determine if caching is active for this run
+      @cache_active = false
+      if CACHE_ENABLED && @participant
+        total_stops = trains.sum do |t|
+          t.distance.is_a?(Numeric) ? t.distance : t.distance.sum { |h| h['visit'] || 0 }
+        end
+        @cache_active = total_stops >= CACHE_STOPS_THRESHOLD
+      end
+
+      # Phase 2: Try exact cache hit — skip walk entirely if board unchanged
+      # Phase 3: On miss, find near-miss for merge after walk
+      @near_miss_routes = nil
+      if @cache_active
+        @current_fp_map = hex_fingerprint_map(corporation)
+        @current_fp_hash = fingerprint_hash(@current_fp_map)
+
+        cached = load_route_cache(corporation, trains)
+        if cached
+          hexside_bits = Hash.new { |h, k| h[k] = 0 }
+          @next_hexside_bit = 0
+
+          static.each do |route|
+            route.bitfield = bitfield_from_connection(route.connection_data, hexside_bits)
+            cached[route.train] = [route]
+          end
+
+          cached.each do |train, routes|
+            routes.each do |route|
+              route.bitfield ||= bitfield_from_connection(route.connection_data, hexside_bits)
+            end
+            cached[train] = routes.sort_by(&:revenue).reverse.take(route_limit)
+          end
+
+          if cache_has_diversity?(cached, trains)
+            LOGGER.debug { 'Route cache: exact hit, skipping path walk' }
+            return [cached, false]
+          end
+
+          # Cache hit but insufficient diversity for multi-train — fall through to walk
+          # Reuse cached routes as near-miss for merging after walk
+          LOGGER.debug { 'Route cache: exact hit but insufficient route diversity, falling back to walk' }
+          @near_miss_routes = cached
+        end
+
+        # No exact hit (or insufficient diversity) — look for near-miss to merge later
+        @near_miss_routes ||= load_near_miss_routes(corporation, trains)
+      end
 
       connections = {}
 
@@ -196,6 +250,26 @@ module Engine
           "#{train_routes.map { |k, v| k.name + ':' + v.size.to_s }.join(', ')} in: #{Time.now - now}"
       end
 
+      # Phase 3: Merge near-miss cached routes with fresh walk results
+      if @near_miss_routes
+        existing_keys = {}
+        train_routes.each do |_train, routes|
+          routes.each { |r| existing_keys[r.connection_hexes] = true }
+        end
+
+        merged_count = 0
+        @near_miss_routes.each do |train, routes|
+          routes.each do |route|
+            next if existing_keys[route.connection_hexes]
+
+            route.bitfield = bitfield_from_connection(route.connection_data, hexside_bits)
+            train_routes[train] << route
+            merged_count += 1
+          end
+        end
+        LOGGER.debug { "Route cache: merged #{merged_count} near-miss routes" } if merged_count.positive?
+      end
+
       static.each do |route|
         # recompute bitfields of passed-in routes since the bits may have changed across auto-router runs
         route.bitfield = bitfield_from_connection(route.connection_data, hexside_bits)
@@ -205,6 +279,8 @@ module Engine
       train_routes.each do |train, routes|
         train_routes[train] = routes.sort_by(&:revenue).reverse.take(route_limit)
       end
+
+      save_route_cache(corporation, train_routes) if @cache_active
 
       [train_routes, path_walk_timed_out]
     end
@@ -284,6 +360,300 @@ module Engine
         add_count -= 1
       end
       bitfield[entry] |= mask
+    end
+
+    # ── Route cache helpers (localStorage, Opal only) ───────────────────────────
+
+    # Check that for every distance class with multiple trains, the cached routes
+    # contain enough non-overlapping routes to fill all trains. Uses a greedy
+    # approach: pick the best route, then find the best non-overlapping route for
+    # the next train, and so on. If we can't fill all trains, fall back to walk.
+    def cache_has_diversity?(train_routes, trains)
+      trains_by_dist = Hash.new { |h, k| h[k] = [] }
+      trains.each { |t| trains_by_dist[t.distance.to_s] << t }
+
+      trains_by_dist.each_value do |dist_trains|
+        num_trains = dist_trains.size
+        next if num_trains < 2
+
+        routes = train_routes[dist_trains.first]
+        next if routes.nil? || routes.size < num_trains
+
+        # Greedy: pick routes one by one, each must not conflict with already-picked
+        picked_bitfields = []
+        routes.each do |route|
+          conflicts = picked_bitfields.any? { |bf| bitfield_conflicts?(bf, route.bitfield) }
+          unless conflicts
+            picked_bitfields << route.bitfield
+            break if picked_bitfields.size >= num_trains
+          end
+        end
+
+        return false if picked_bitfields.size < num_trains
+      end
+
+      true
+    end
+
+    # Find routes that MUST be included in cache to ensure the combo optimizer
+    # can fill all trains. Greedily picks one non-overlapping route per train
+    # across all distance classes. Returns Hash[dist_key → [Route]].
+    def find_must_include_routes(train_routes)
+      must_include = Hash.new { |h, k| h[k] = [] }
+      trains = train_routes.keys
+      return must_include if trains.size < 2
+
+      # Try each train as anchor, pick the best non-overlapping set
+      best_set = nil
+      trains.each_with_index do |anchor, anchor_idx|
+        others = trains.reject.with_index { |_, i| i == anchor_idx }
+
+        (train_routes[anchor] || []).first(50).each do |anchor_route|
+          picked = { anchor => anchor_route }
+          combined_bf = anchor_route.bitfield
+
+          others.each do |train|
+            candidate = (train_routes[train] || []).find do |r|
+              !bitfield_conflicts?(r.bitfield, combined_bf)
+            end
+            if candidate
+              picked[train] = candidate
+              combined_bf = merge_bitfields(combined_bf, candidate.bitfield)
+            end
+          end
+
+          next unless picked.size == trains.size
+
+          total = picked.values.sum(&:revenue)
+          best_set = picked if best_set.nil? || total > best_set.values.sum(&:revenue)
+        end
+      end
+
+      return must_include unless best_set
+
+      best_set.each do |train, route|
+        must_include[train.distance.to_s] << route
+      end
+      must_include
+    end
+
+    def merge_bitfields(a, b)
+      return b if a.nil?
+      return a if b.nil?
+
+      max = [a.size, b.size].max
+      Array.new(max) { |i| (a[i] || 0) | (b[i] || 0) }
+    end
+
+    # Select routes for caching ensuring must-include routes are present,
+    # then fill remaining cap with top routes by revenue.
+    def select_diverse_routes(routes, cap, must_include_routes)
+      # Start with must-include routes
+      selected = must_include_routes.dup
+      selected_set = selected.map(&:connection_hexes).to_set
+
+      # Fill remaining cap with top routes by revenue (dedup)
+      routes.each do |route|
+        break if selected.size >= cap
+
+        selected << route unless selected_set.include?(route.connection_hexes)
+      end
+
+      selected
+    end
+
+    def bitfield_conflicts?(a, b)
+      return false if a.nil? || b.nil?
+
+      [a.size, b.size].min.times do |i|
+        return true if (a[i] & b[i]) != 0
+      end
+      false
+    end
+
+    def cache_key_prefix(corporation)
+      "autoroute_cache_#{@game.id}_#{corporation.id}"
+    end
+
+    def hex_fingerprint_map(corporation)
+      graph = @game.graph_for_entity(corporation)
+      hexes = graph.connected_hexes(corporation).keys
+      fingerprints = {}
+      hexes.each do |hex|
+        tile = hex.tile
+        token_str = tile.cities.map do |city|
+          city.tokens.map { |t| t&.corporation&.id || '-' }.join(',')
+        end.join(';')
+        fingerprints[hex.id] = "#{tile.name}:#{tile.rotation}:#{token_str}"
+      end
+      fingerprints
+    end
+
+    def fingerprint_hash(fingerprint_map)
+      # Stable hash: sort keys, join into a single string, use Ruby's hash
+      fingerprint_map.sort.map { |k, v| "#{k}=#{v}" }.join('|').hash.to_s(36)
+    end
+
+    def load_near_miss_routes(corporation, trains)
+      fp_map = @current_fp_map
+      prefix = cache_key_prefix(corporation)
+      corp_keys = Lib::Storage.all_keys.select { |k| k.start_with?(prefix) }
+      return nil if corp_keys.empty?
+
+      # Find the entry with fewest changed hexes
+      best_entry = nil
+      best_changed = nil
+      corp_keys.each do |k|
+        entry = Lib::Storage[k]
+        next if !entry&.dig('fp') || !entry&.dig('routes')
+
+        stored_fp = entry['fp']
+        changed = Set.new
+        # Hexes in current but not stored, or with different fingerprint
+        fp_map.each { |hex_id, fp| changed << hex_id if stored_fp[hex_id] != fp }
+        # Hexes in stored but no longer connected
+        stored_fp.each_key { |hex_id| changed << hex_id unless fp_map.key?(hex_id) }
+
+        if best_changed.nil? || changed.size < best_changed.size
+          best_changed = changed
+          best_entry = entry
+        end
+      end
+
+      return nil if !best_entry || !best_changed || best_changed.empty?
+
+      LOGGER.debug { "Route cache: near-miss with #{best_changed.size} changed hexes" }
+
+      # Build distance → trains lookup (multiple trains can share a distance class)
+      trains_by_dist = Hash.new { |h, k| h[k] = [] }
+      trains.each { |t| trains_by_dist[t.distance.to_s] << t }
+
+      train_routes = Hash.new { |h, k| h[k] = [] }
+      best_entry['routes'].each do |dist_key, cached_routes|
+        matching_trains = trains_by_dist[dist_key]
+        next if matching_trains.empty?
+
+        matching_trains.each do |train|
+          cached_routes.each do |cr|
+            # Skip routes touching any changed hex
+            route_hexes = cr['ch']&.flatten || []
+            next if route_hexes.any? { |hex_id| best_changed.include?(hex_id) }
+
+            route = Engine::Route.new(
+              @game,
+              @game.phase,
+              train,
+              connection_hexes: cr['ch'],
+              nodes: cr['ns'],
+            )
+            route.routes = [route]
+            route.revenue(suppress_check_route_combination: true)
+            train_routes[train] << route
+          rescue StandardError
+            next
+          end
+        end
+      end
+
+      train_routes.empty? ? nil : train_routes
+    rescue StandardError => e
+      LOGGER.debug { "Route cache near-miss load failed: #{e.message}" }
+      nil
+    end
+
+    def load_route_cache(corporation, trains)
+      key = "#{cache_key_prefix(corporation)}_#{@current_fp_hash}"
+
+      entry = Lib::Storage[key]
+      return nil unless entry
+
+      routes_data = entry['routes']
+      return nil unless routes_data
+
+      # Build distance → trains lookup (multiple trains can share a distance class)
+      trains_by_dist = Hash.new { |h, k| h[k] = [] }
+      trains.each { |t| trains_by_dist[t.distance.to_s] << t }
+
+      train_routes = Hash.new { |h, k| h[k] = [] }
+
+      routes_data.each do |dist_key, cached_routes|
+        matching_trains = trains_by_dist[dist_key]
+        next if matching_trains.empty?
+
+        # Reconstruct routes once, then clone for each train sharing this distance
+        matching_trains.each do |train|
+          cached_routes.each do |cr|
+            route = Engine::Route.new(
+              @game,
+              @game.phase,
+              train,
+              connection_hexes: cr['ch'],
+              nodes: cr['ns'],
+            )
+            route.routes = [route]
+            route.revenue(suppress_check_route_combination: true)
+            train_routes[train] << route
+          rescue StandardError
+            next
+          end
+        end
+      end
+
+      return nil if train_routes.empty?
+
+      train_routes
+    rescue StandardError => e
+      LOGGER.debug { "Route cache load failed: #{e.message}" }
+      nil
+    end
+
+    def save_route_cache(corporation, train_routes)
+      fp_map = @current_fp_map || hex_fingerprint_map(corporation)
+      fp_hash = @current_fp_hash || fingerprint_hash(fp_map)
+      key = "#{cache_key_prefix(corporation)}_#{fp_hash}"
+
+      # Find a set of non-overlapping "must-include" routes across ALL trains,
+      # ensuring the cache has enough diversity for the combo optimizer.
+      must_include = find_must_include_routes(train_routes)
+
+      routes_data = {}
+      seen_dists = Set.new
+      train_routes.each do |train, routes|
+        dist_key = train.distance.to_s
+        next if seen_dists.include?(dist_key) # only save once per distance class
+
+        seen_dists << dist_key
+        must_for_dist = must_include[dist_key] || []
+        routes_data[dist_key] = select_diverse_routes(routes, CACHE_ROUTE_CAP, must_for_dist).map do |route|
+          {
+            'ch' => route.connection_hexes,
+            'ns' => route.node_signatures,
+            'rev' => route.revenue,
+          }
+        end
+      end
+
+      entry = {
+        'ts' => Time.now.to_i,
+        'fp' => fp_map,
+        'routes' => routes_data,
+      }
+
+      Lib::Storage[key] = entry
+
+      # LRU eviction: keep max CACHE_MAX_ENTRIES_PER_CORP entries per corp
+      prefix = cache_key_prefix(corporation)
+      corp_keys = Lib::Storage.all_keys.select { |k| k.start_with?(prefix) }
+      if corp_keys.size > CACHE_MAX_ENTRIES_PER_CORP
+        # Sort by timestamp, delete oldest
+        keyed = corp_keys.map { |k| [k, Lib::Storage[k]&.dig('ts') || 0] }
+        keyed.sort_by! { |_, ts| ts }
+        keyed.first(corp_keys.size - CACHE_MAX_ENTRIES_PER_CORP).each { |k, _| Lib::Storage.delete(k) }
+      end
+
+      LOGGER.debug { "Route cache saved: #{key} (#{routes_data.map { |k, v| "#{k}:#{v.size}" }.join(', ')} routes)" }
+    rescue StandardError => e
+      LOGGER.debug { "Route cache save failed: #{e.message}" }
     end
 
     %x{
