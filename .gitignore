@@ -9,7 +9,11 @@
 /build/
 /vendor/
 /public/assets/*
+!/public/assets/wasm/
 /public/pinned/*
+
+# Rust build cache
+/rust-autorouter/target/
 
 .tags
 .DS_STORE

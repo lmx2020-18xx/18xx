@@ -1,0 +1,15 @@
+{
+  "name": "rust-autorouter",
+  "type": "module",
+  "version": "0.1.0",
+  "files": [
+    "rust_autorouter_bg.wasm",
+    "rust_autorouter.js",
+    "rust_autorouter.d.ts"
+  ],
+  "main": "rust_autorouter.js",
+  "types": "rust_autorouter.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}

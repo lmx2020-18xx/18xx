@@ -96,6 +96,29 @@ task :prod_irb do
   irb.call('production')
 end
 
+desc 'Build Rust autorouter WASM module'
+task :wasm do
+  wasm_src = 'rust-autorouter'
+  wasm_out = File.join('public', 'assets', 'wasm')
+
+  raise "Rust autorouter source not found at #{wasm_src}/" unless Dir.exist?(wasm_src)
+
+  unless system('wasm-pack --version > /dev/null 2>&1')
+    raise 'wasm-pack not found. Install via: cargo install wasm-pack'
+  end
+
+  profile = ENV['WASM_DEV'] ? '--dev' : '--release'
+  sh "cd #{wasm_src} && wasm-pack build #{profile} --target web --out-dir #{File.join('..', wasm_out)}"
+
+  # Clean up wasm-pack generated files we don't need in the repo
+  %w[.gitignore package.json].each do |f|
+    path = File.join(wasm_out, f)
+    File.delete(path) if File.exist?(path)
+  end
+
+  puts "WASM artifacts written to #{wasm_out}/"
+end
+
 # Other
 
 desc 'Annotate Sequel models'

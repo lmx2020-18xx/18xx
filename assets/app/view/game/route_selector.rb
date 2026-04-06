@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# backtick_javascript: true
+
 require 'lib/settings'
 require 'engine/auto_router'
 require 'view/game/actionable'
@@ -225,6 +227,46 @@ module View
         ]
       end
 
+      def load_wasm_and_run(router)
+        callback = lambda do |routes|
+          @routes = routes
+          @selected_route = @routes.first
+          store(:autorouter_running, router.running, skip: true)
+          store(:selected_route, @selected_route, skip: true)
+          store(:routes, @routes)
+        end
+
+        compute_opts = {
+          routes: @routes.reject { |r| r.paths.empty? },
+          path_timeout: setting_for(:path_timeout).to_i,
+          route_timeout: setting_for(:route_timeout).to_i,
+          callback: callback,
+        }
+
+        # Try to load WASM module, then run autorouter (falls back to legacy if WASM unavailable)
+        %x{
+          if (typeof window.__wasm_autorouter === 'undefined' && typeof window.__wasm_loading === 'undefined') {
+            window.__wasm_loading = true;
+            import('/assets/wasm/rust_autorouter.js').then(function(mod) {
+              return mod.default().then(function() { return mod; });
+            }).then(function(mod) {
+              window.__wasm_autorouter = mod;
+              delete window.__wasm_loading;
+              #{router.compute(@game.current_entity, **compute_opts)};
+            }).catch(function(e) {
+              console.warn('WASM autorouter not available, using legacy:', e);
+              delete window.__wasm_loading;
+              #{router.compute(@game.current_entity, **compute_opts)};
+            });
+          } else if (typeof window.__wasm_loading !== 'undefined') {
+            // WASM is currently loading, just run (will use legacy fallback)
+            #{router.compute(@game.current_entity, **compute_opts)};
+          } else {
+            #{router.compute(@game.current_entity, **compute_opts)};
+          }
+        }
+      end
+
       def cleanup
         store(:selected_route, nil, skip: true)
         store(:routes, [], skip: true)
@@ -271,19 +313,7 @@ module View
           router = Engine::AutoRouter.new(@game, flash)
           store(:autorouter_running, true, skip: true)
           store(:autorouter, router)
-          router.compute(
-            @game.current_entity,
-            routes: @routes.reject { |r| r.paths.empty? },
-            path_timeout: setting_for(:path_timeout).to_i,
-            route_timeout: setting_for(:route_timeout).to_i,
-            callback: lambda do |routes|
-              @routes = routes
-              @selected_route = @routes.first
-              store(:autorouter_running, router.running, skip: true)
-              store(:selected_route, @selected_route, skip: true)
-              store(:routes, @routes)
-            end
-          )
+          load_wasm_and_run(router)
         end
 
         auto_stop = lambda do

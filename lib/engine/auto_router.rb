@@ -16,9 +16,42 @@ module Engine
       @flash = flash
     end
 
+    # Games with fully ported revenue_for in the WASM autorouter.
+    # Games with no revenue_for override use pure base revenue and work as-is.
+    # Games with overrides need their bonuses implemented in Rust.
+    # All other games fall back to the legacy Ruby+JS autorouter.
+    # rubocop:disable Layout/ArrayAlignment
+    WASM_SUPPORTED_GAMES = [
+      # No revenue_for override — pure base revenue
+      '1804', '1828.Games', '1829', '1830', '1835', '1854', '1861',
+      'The Old Prince 1871', '1877: Venezuela', '1889', '1893',
+      '18Carolinas', '18Chesapeake', '18Chesapeake: Off the Rails',
+      '18Cuba', '18Dixie', '18FR', '18GA', '18MEX',
+      '18NL', '18Norway', '18OE', '18OE UK-France Scenario',
+      '18PA', '18Texas', '18TN', '18WE', '18West',
+      '2038', '22Mars',
+      'Rolling Stock', 'Rolling Stock Stars',
+      # Games with revenue_for bonuses implemented in Rust
+      '1846',
+      '1870',
+    ].freeze
+    # rubocop:enable Layout/ArrayAlignment
+
     def compute(corporation, **opts)
       @running = true
       @route_timeout = opts[:route_timeout] || 10
+      if RUBY_ENGINE == 'opal' && wasm_available? && wasm_supported?
+        compute_wasm(corporation, **opts)
+      else
+        compute_legacy(corporation, **opts)
+      end
+    end
+
+    def wasm_supported?
+      WASM_SUPPORTED_GAMES.include?(@game.class.title)
+    end
+
+    def compute_legacy(corporation, **opts)
       trains = @game.route_trains(corporation).sort_by(&:price)
       train_routes, path_walk_timed_out = path(trains, corporation, **opts)
       @flash&.call('Auto route path walk failed to complete (PATH TIMEOUT)') if path_walk_timed_out
@@ -29,6 +62,486 @@ module Engine
       %x{
         (new Autorouter(#{self}, #{trains_to_routes}, #{callback})).autoroute();
       }
+    end
+
+    def wasm_available?
+      %x{
+        return typeof window !== 'undefined' && typeof window.__wasm_autorouter !== 'undefined'
+      }
+    end
+
+    def compute_wasm(corporation, **opts)
+      static = opts[:routes] || []
+      callback = opts[:callback]
+      graph_json = serialize_graph(corporation, static, **opts)
+      sorted_trains = @game.route_trains(corporation).sort_by(&:price)
+
+      %x{
+        var self = #{self};
+        var wasm = window.__wasm_autorouter;
+        var game = #{@game};
+        var phase = #{@game.phase};
+        var callback = #{callback};
+        var sorted_trains = #{sorted_trains};
+
+        // Revenue callback: receives JSON array of route data, constructs Route objects, returns real_revenue
+        var revenueCallback = function(combo_json) {
+          try {
+            var combo_data = JSON.parse(combo_json);
+            var routes = [];
+            for (var i = 0; i < combo_data.length; i++) {
+              var rd = combo_data[i];
+              var train = null;
+              // Find the train by matching train_id (format: "name-index")
+              var route_trains = sorted_trains;
+              for (var j = 0; j < route_trains.length; j++) {
+                var t = route_trains[j];
+                if (rd.train_id === (t.$name() + "-" + j)) {
+                  train = t;
+                  break;
+                }
+              }
+              if (!train) return -1;
+              var route = #{Engine::Route.new(@game, @game.phase, `train`,
+                connection_hexes: `rd.connection_hexes`,
+                nodes: `rd.node_signatures`,
+                routes: `routes`,
+                bitfield: `[0]`)};
+              routes.push(route);
+            }
+            return #{real_revenue(`routes`)};
+          } catch(e) {
+            return -1;
+          }
+        };
+
+        // Progress callback
+        var progressCallback = function(progress_json) {
+          if (!self.running) return false;
+          return true;
+        };
+
+        // Run WASM autorouter asynchronously
+        (async function() {
+          try {
+            var result_json = wasm.find_best_routes(#{graph_json}, revenueCallback, progressCallback);
+            var result = JSON.parse(result_json);
+
+            if (result.walk_timed_out) {
+              #{@flash&.call('Auto route path walk failed to complete (PATH TIMEOUT)')};
+            }
+
+            // Build Route objects from WASM result
+            var route_trains = sorted_trains;
+            var skip_trains = #{static.map(&:train)};
+            var active_trains = [];
+            for (var i = 0; i < route_trains.length; i++) {
+              if (skip_trains.indexOf(route_trains[i]) === -1) {
+                active_trains.push(route_trains[i]);
+              }
+            }
+
+            var best_routes = #{static.dup};
+            for (var i = 0; i < result.routes.length; i++) {
+              var rd = result.routes[i];
+              var train = null;
+              for (var j = 0; j < active_trains.length; j++) {
+                var t = active_trains[j];
+                if (rd.train_id === (t.$name() + "-" + j)) {
+                  train = t;
+                  break;
+                }
+              }
+              if (!train) continue;
+              var route = #{Engine::Route.new(@game, @game.phase, `train`,
+                connection_hexes: `rd.connection_hexes`,
+                nodes: `rd.node_signatures`,
+                routes: `best_routes`,
+                bitfield: `[0]`)};
+              best_routes.push(route);
+            }
+
+            // Finalize revenues
+            #{real_revenue(`best_routes`)};
+            self.running = false;
+            callback(best_routes);
+          } catch(e) {
+            Opal.LOGGER.$error("WASM autorouter failed: " + e);
+            Opal.LOGGER.$error("Falling back to legacy autorouter");
+            self.running = true;
+            #{compute_legacy(corporation, **opts)};
+          }
+        })();
+      }
+    end
+
+    def serialize_graph(corporation, static_routes, **opts)
+      path_timeout = opts[:path_timeout] || 30
+      route_limit = opts[:route_limit] || 10_000
+
+      graph = @game.graph_for_entity(corporation)
+      trains = @game.route_trains(corporation).sort_by(&:price)
+
+      connected_nodes = graph.connected_nodes(corporation)
+      connected_paths = graph.connected_paths(corporation)
+
+      # Build node index map
+      node_map = {}
+      nodes_json = []
+      connected_nodes.keys.each_with_index do |node, idx|
+        node_map[node] = idx
+
+        revenue = {}
+        current_rev = begin
+          node.route_revenue(@game.phase, trains.first)
+        rescue StandardError
+          0
+        end
+        revenue[@game.phase.tiles.last.to_s] = current_rev if current_rev.positive?
+
+        node_type = if node.city?
+                      'city'
+                    elsif node.town?
+                      'town'
+                    elsif node.offboard?
+                      'offboard'
+                    else
+                      'junction'
+                    end
+
+        tokens = if node.respond_to?(:tokens)
+                   node.tokens.map { |t| t&.corporation&.id }
+                 else
+                   []
+                 end
+
+        slots = node.respond_to?(:slots) ? node.slots : 0
+        groups = node.respond_to?(:groups) ? node.groups : []
+        visit_cost = node.respond_to?(:visit_cost) ? node.visit_cost : 1
+        extra_tokens = if node.respond_to?(:extra_tokens)
+                         node.extra_tokens.map { |t| t&.corporation&.id }.compact
+                       else
+                         []
+                       end
+
+        nodes_json << {
+          id: idx,
+          hex_id: node.hex.id,
+          index: node.index || 0,
+          type: node_type,
+          revenue: revenue,
+          slots: slots,
+          tokens: tokens,
+          extra_tokens: extra_tokens,
+          groups: groups,
+          visit_cost: visit_cost,
+          is_offboard: node.offboard? || false,
+        }
+      end
+
+      # Collect ALL paths on connected hexes (not just connected_paths)
+      # Ruby's walk accesses hex.paths[edge] which includes ALL tile paths
+      connected_hexes_set = connected_paths.keys.map(&:hex).uniq
+      all_hex_paths = connected_hexes_set.flat_map { |hex| hex.tile.paths }.uniq
+
+      # Build path data
+      paths_json = []
+      path_map = {}
+      path_idx = 0
+      all_hex_paths.each do |path|
+        path_map[path] = path_idx
+
+        a_endpoint = resolve_endpoint(path.a, node_map)
+        b_endpoint = resolve_endpoint(path.b, node_map)
+
+        lanes = if path.exit_lanes && !path.exit_lanes.empty?
+                  a_lane = path.exit_lanes.values.first || [1, 0]
+                  b_lane = path.exit_lanes.values.last || [1, 0]
+                  [a_lane, b_lane]
+                else
+                  [[1, 0], [1, 0]]
+                end
+
+        junction_id = path.junction&.object_id
+
+        paths_json << {
+          id: path_idx,
+          hex_id: path.hex.id,
+          a: a_endpoint,
+          b: b_endpoint,
+          track: (path.track || :broad).to_s,
+          lanes: lanes,
+          terminal: path.terminal? || false,
+          ignore: path.ignore? || false,
+          junction_id: junction_id,
+        }
+
+        path_idx += 1
+      end
+
+      # Build hex data
+      hexes_json = {}
+      seen_hexes = Set.new
+      all_hex_paths.each do |path|
+        hex = path.hex
+        next if seen_hexes.include?(hex.id)
+
+        seen_hexes << hex.id
+
+        neighbors = {}
+        hex.neighbors.each do |edge_num, neighbor|
+          next unless neighbor
+
+          neighbors[edge_num.to_s] = neighbor.id
+        end
+
+        hexes_json[hex.id] = { neighbors: neighbors }
+      end
+
+      # Converging exits
+      converging_exits = {}
+      seen_hexes.each do |hex_id|
+        hex = @game.hex_by_id(hex_id)
+        next unless hex&.tile
+
+        exits = {}
+        hex.tile.paths.each do |p|
+          p.edges.each do |e|
+            count = hex.tile.paths.count { |pp| pp.edges.any? { |pe| pe.num == e.num } }
+            exits[e.num] = true if count > 1
+          end
+        end
+
+        converging_exits[hex_id] = exits.keys unless exits.empty?
+      end
+
+      # Build junction data
+      junctions_json = []
+      junction_map = {}
+      all_hex_paths.each do |path|
+        next unless path.junction
+
+        jid = path.junction.object_id
+        next if junction_map[jid]
+
+        junction_paths = path.junction.paths.filter_map { |jp| path_map[jp] }
+        junction_idx = junctions_json.size
+        junction_map[jid] = junction_idx
+
+        junctions_json << {
+          id: junction_idx,
+          hex_id: path.hex.id,
+          path_ids: junction_paths,
+        }
+      end
+
+      # Update junction_id references
+      paths_json.each do |p|
+        p[:junction_id] = junction_map[p[:junction_id]] if p[:junction_id]
+      end
+
+      # Build trains data
+      skip_trains = static_routes.map(&:train)
+      active_trains = trains.reject { |t| skip_trains.include?(t) }
+      trains_json = active_trains.each_with_index.map do |train, idx|
+        dist = if train.distance.is_a?(Numeric)
+                 train.distance
+               else
+                 train.distance.map do |d|
+                   {
+                     nodes: d['nodes'] || d[:nodes],
+                     pay: d['pay'] || d[:pay],
+                     visit: d['visit'] || d[:visit],
+                     multiplier: d['multiplier'] || d[:multiplier],
+                   }
+                 end
+               end
+
+        {
+          id: "#{train.name}-#{idx}",
+          name: train.name,
+          distance: dist,
+          price: train.price || 0,
+          local: train.local? || false,
+        }
+      end
+
+      # Build static routes (skip paths)
+      static_json = static_routes.map do |route|
+        path_ids = route.paths.filter_map { |p| path_map[p] }
+        {
+          train_id: "static-#{route.train.name}",
+          path_ids: path_ids,
+        }
+      end
+
+      # Build start_nodes in priority order
+      start_nodes = connected_nodes.keys.sort_by do |node|
+        revenue = trains.map { |train| node.route_revenue(@game.phase, train) }.max
+        [
+          node.tokened_by?(corporation) ? 0 : 1,
+          node.offboard? ? 0 : 1,
+          -revenue,
+        ]
+      end.map { |node| node_map[node] }
+
+      train_groups = if @train_autoroute_group.nil?
+                       nil
+                     elsif @train_autoroute_group == :each_train_separate
+                       'each_train_separate'
+                     else
+                       @train_autoroute_group
+                     end
+
+      # Build bonuses (game-specific revenue adjustments)
+      bonuses_json = build_bonuses(corporation, nodes_json)
+
+      output = {
+        corporation_id: corporation.id,
+        current_phase: @game.phase.tiles.last.to_s,
+        no_blocking: graph.no_blocking? || false,
+        hexes: hexes_json,
+        nodes: nodes_json,
+        paths: paths_json,
+        junctions: junctions_json,
+        converging_exits: converging_exits,
+        trains: trains_json,
+        start_nodes: start_nodes,
+        static_routes: static_json,
+        bonuses: bonuses_json,
+        config: {
+          path_timeout_ms: path_timeout * 1000,
+          route_timeout_ms: @route_timeout * 1000,
+          route_limit: route_limit,
+          train_autoroute_groups: train_groups,
+        },
+      }
+
+      output.to_json
+    end
+
+    def build_bonuses(corporation, nodes_json)
+      bonuses = []
+      title = @game.class.title
+
+      return build_1846_bonuses(corporation, nodes_json) if title == '1846'
+      return bonuses unless title == '1870'
+
+      # SCC cattle: +10 per route if corp is assigned SCC and route touches an SCC hex
+      if corporation.assigned?('SCC')
+        scc_nodes = nodes_json.select { |n| @game.hex_by_id(n[:hex_id])&.assigned?('SCC') }
+                              .map { |n| n[:id] }
+        bonuses << { type: 'hex_route', nodes: scc_nodes, amount: 10 } unless scc_nodes.empty?
+      end
+
+      # GSC closed port: +20 per route if corp assigned GSCᶜ and route touches GSCᶜ hex
+      if corporation.assigned?('GSCᶜ')
+        gsc_closed_nodes = nodes_json.select { |n| @game.hex_by_id(n[:hex_id])&.assigned?('GSCᶜ') }
+                                     .map { |n| n[:id] }
+        bonuses << { type: 'hex_route', nodes: gsc_closed_nodes, amount: 20 } unless gsc_closed_nodes.empty?
+      end
+
+      # GSC open port: +20 if corp owns GSC, +10 otherwise
+      gsc_open_nodes = nodes_json.select { |n| @game.hex_by_id(n[:hex_id])&.assigned?('GSC') }
+                                 .map { |n| n[:id] }
+      unless gsc_open_nodes.empty?
+        gsc_amount = corporation.assigned?('GSC') ? 20 : 10
+        bonuses << { type: 'hex_route', nodes: gsc_open_nodes, amount: gsc_amount }
+      end
+
+      # Destination: double endpoint revenue if corp's token is on its destination hex
+      # Destination tokens live in extra_tokens, not regular token slots
+      if @game.respond_to?(:destination_hex)
+        dest_hex = @game.destination_hex(corporation)
+        if dest_hex
+          dest_node = nodes_json.find { |n| n[:hex_id] == dest_hex.id }
+          if dest_node
+            has_token = dest_node[:tokens].include?(corporation.id) ||
+                        dest_node[:extra_tokens].include?(corporation.id)
+            bonuses << { type: 'destination', node: dest_node[:id] } if has_token
+          end
+        end
+      end
+
+      bonuses
+    end
+
+    def build_1846_bonuses(corporation, nodes_json)
+      bonuses = []
+
+      # Private company bonuses: BT (+20), MPC (+30), SC (+20 * port icons)
+      [
+        ['BT', 20, nil],
+        ['MPC', 30, nil],
+        ['SC', 20, 'port'],
+      ].each do |company_id, base_amount, icon|
+        next unless corporation.assigned?(company_id)
+
+        matched_nodes = nodes_json.select { |n| @game.hex_by_id(n[:hex_id])&.assigned?(company_id) }
+        next if matched_nodes.empty?
+
+        amount = base_amount
+        if icon
+          hex = @game.hex_by_id(matched_nodes.first[:hex_id])
+          icon_count = hex.tile.icons.count { |i| i.name == icon }
+          amount = base_amount * icon_count
+        end
+
+        bonuses << { type: 'hex_route', nodes: matched_nodes.map { |n| n[:id] }, amount: amount }
+      end
+
+      # East/West bonus: pre-compute amounts from tile icons
+      east_nodes = []
+      west_nodes = []
+      east_amount = 0
+      west_amount = 0
+      nodes_json.each do |n|
+        node_obj = @game.hex_by_id(n[:hex_id])&.tile&.nodes&.find { |nn| (nn.index || 0) == n[:index] }
+        next unless node_obj
+
+        if node_obj.groups.include?('E')
+          east_nodes << n[:id]
+          amt = node_obj.tile.icons.sum { |ic| ic.name.to_i }
+          east_amount = amt if amt > east_amount
+        end
+        if node_obj.tile.label&.to_s == 'W'
+          west_nodes << n[:id]
+          amt = node_obj.tile.icons.sum { |ic| ic.name.to_i }
+          west_amount = amt if amt > west_amount
+        end
+      end
+      if east_nodes.any? && west_nodes.any?
+        bonuses << {
+          type: 'east_west',
+          east_nodes: east_nodes,
+          west_nodes: west_nodes,
+          east_amount: east_amount,
+          west_amount: west_amount,
+        }
+      end
+
+      # Mail Contract: +10 per stop (optimistic — applied to all routes during walk,
+      # real_revenue callback corrects to longest-only)
+      if @game.respond_to?(:mail_contract)
+        mc = @game.mail_contract
+        if mc && corporation.companies.include?(mc)
+          bonuses << { type: 'per_stop', amount: 10 }
+        end
+      end
+
+      bonuses
+    end
+
+    def resolve_endpoint(part, node_map)
+      if part.respond_to?(:edge?) && part.edge?
+        { type: 'edge', num: part.num }
+      elsif part.respond_to?(:junction?) && part.junction?
+        { type: 'junction', index: 0 }
+      elsif node_map[part]
+        { type: 'node', index: node_map[part] }
+      else
+        { type: 'edge', num: 0 }
+      end
     end
 
     def real_revenue(routes)

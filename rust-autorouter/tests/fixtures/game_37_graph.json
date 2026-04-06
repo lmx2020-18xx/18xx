@@ -1,0 +1,7586 @@
+{
+  "corporation_id": "TP",
+  "current_phase": "blue",
+  "no_blocking": false,
+  "hexes": {
+    "J5": {
+      "neighbors": {
+        "0": "K4",
+        "1": "J3",
+        "2": "I4",
+        "3": "I6",
+        "4": "J7",
+        "5": "K6"
+      }
+    },
+    "K6": {
+      "neighbors": {
+        "0": "L5",
+        "1": "K4",
+        "2": "J5",
+        "3": "J7",
+        "4": "K8",
+        "5": "L7"
+      }
+    },
+    "L7": {
+      "neighbors": {
+        "0": "M6",
+        "1": "L5",
+        "2": "K6",
+        "3": "K8",
+        "4": "L9",
+        "5": "M8"
+      }
+    },
+    "L9": {
+      "neighbors": {
+        "0": "M8",
+        "1": "L7",
+        "2": "K8",
+        "3": "K10",
+        "4": "L11",
+        "5": "M10"
+      }
+    },
+    "L11": {
+      "neighbors": {
+        "0": "M10",
+        "1": "L9",
+        "2": "K10",
+        "3": "K12",
+        "4": "L13",
+        "5": "M12"
+      }
+    },
+    "K10": {
+      "neighbors": {
+        "0": "L9",
+        "1": "K8",
+        "2": "J9",
+        "3": "J11",
+        "4": "K12",
+        "5": "L11"
+      }
+    },
+    "J9": {
+      "neighbors": {
+        "0": "K8",
+        "1": "J7",
+        "2": "I8",
+        "3": "I10",
+        "4": "J11",
+        "5": "K10"
+      }
+    },
+    "I8": {
+      "neighbors": {
+        "0": "J7",
+        "1": "I6",
+        "2": "H7",
+        "3": "H9",
+        "4": "I10",
+        "5": "J9"
+      }
+    },
+    "I10": {
+      "neighbors": {
+        "0": "J9",
+        "1": "I8",
+        "2": "H9",
+        "3": "H11",
+        "4": "I12",
+        "5": "J11"
+      }
+    },
+    "I12": {
+      "neighbors": {
+        "0": "J11",
+        "1": "I10",
+        "2": "H11",
+        "3": "H13",
+        "4": "I14",
+        "5": "J13"
+      }
+    },
+    "H13": {
+      "neighbors": {
+        "0": "I12",
+        "1": "H11",
+        "2": "G12",
+        "3": "G14",
+        "4": "H15",
+        "5": "I14"
+      }
+    },
+    "G12": {
+      "neighbors": {
+        "0": "H11",
+        "1": "G10",
+        "2": "F11",
+        "3": "F13",
+        "4": "G14",
+        "5": "H13"
+      }
+    },
+    "F11": {
+      "neighbors": {
+        "0": "G10",
+        "1": "F9",
+        "2": "E10",
+        "3": "E12",
+        "4": "F13",
+        "5": "G12"
+      }
+    },
+    "E12": {
+      "neighbors": {
+        "0": "F11",
+        "1": "E10",
+        "2": "D11",
+        "3": "D13",
+        "4": "E14",
+        "5": "F13"
+      }
+    },
+    "G14": {
+      "neighbors": {
+        "0": "H13",
+        "1": "G12",
+        "2": "F13",
+        "3": "F15",
+        "4": "G16",
+        "5": "H15"
+      }
+    },
+    "G16": {
+      "neighbors": {
+        "0": "H15",
+        "1": "G14",
+        "2": "F15",
+        "3": "F17",
+        "4": "G18",
+        "5": "H17"
+      }
+    },
+    "H17": {
+      "neighbors": {
+        "0": "I16",
+        "1": "H15",
+        "2": "G16",
+        "3": "G18",
+        "4": "H19",
+        "5": "I18"
+      }
+    },
+    "H19": {
+      "neighbors": {
+        "0": "I18",
+        "1": "H17",
+        "2": "G18",
+        "3": "G20",
+        "4": "H21",
+        "5": "I20"
+      }
+    },
+    "G18": {
+      "neighbors": {
+        "0": "H17",
+        "1": "G16",
+        "2": "F17",
+        "3": "F19",
+        "4": "G20",
+        "5": "H19"
+      }
+    },
+    "F17": {
+      "neighbors": {
+        "0": "G16",
+        "1": "F15",
+        "2": "E16",
+        "3": "E18",
+        "4": "F19",
+        "5": "G18"
+      }
+    },
+    "E18": {
+      "neighbors": {
+        "0": "F17",
+        "1": "E16",
+        "2": "D17",
+        "3": "D19",
+        "4": "E20",
+        "5": "F19"
+      }
+    },
+    "D19": {
+      "neighbors": {
+        "0": "E18",
+        "1": "D17",
+        "2": "C18",
+        "3": "C20",
+        "4": "D21",
+        "5": "E20"
+      }
+    },
+    "C20": {
+      "neighbors": {
+        "0": "D19",
+        "1": "C18",
+        "2": "B19",
+        "3": "B21",
+        "5": "D21"
+      }
+    },
+    "B19": {
+      "neighbors": {
+        "0": "C18",
+        "1": "B17",
+        "2": "A18",
+        "3": "A20",
+        "4": "B21",
+        "5": "C20"
+      }
+    },
+    "A20": {
+      "neighbors": {
+        "0": "B19",
+        "1": "A18",
+        "4": "A22",
+        "5": "B21"
+      }
+    },
+    "A22": {
+      "neighbors": {
+        "0": "B21",
+        "1": "A20"
+      }
+    },
+    "C18": {
+      "neighbors": {
+        "0": "D17",
+        "1": "C16",
+        "2": "B17",
+        "3": "B19",
+        "4": "C20",
+        "5": "D19"
+      }
+    },
+    "D17": {
+      "neighbors": {
+        "0": "E16",
+        "1": "D15",
+        "2": "C16",
+        "3": "C18",
+        "4": "D19",
+        "5": "E18"
+      }
+    },
+    "C16": {
+      "neighbors": {
+        "0": "D15",
+        "1": "C14",
+        "2": "B15",
+        "3": "B17",
+        "4": "C18",
+        "5": "D17"
+      }
+    },
+    "B15": {
+      "neighbors": {
+        "0": "C14",
+        "1": "B13",
+        "2": "A14",
+        "3": "A16",
+        "4": "B17",
+        "5": "C16"
+      }
+    },
+    "A14": {
+      "neighbors": {
+        "0": "B13",
+        "1": "A12",
+        "4": "A16",
+        "5": "B15"
+      }
+    },
+    "A12": {
+      "neighbors": {
+        "0": "B11",
+        "1": "A10",
+        "4": "A14",
+        "5": "B13"
+      }
+    },
+    "B11": {
+      "neighbors": {
+        "0": "C10",
+        "1": "B9",
+        "2": "A10",
+        "3": "A12",
+        "4": "B13",
+        "5": "C12"
+      }
+    },
+    "B17": {
+      "neighbors": {
+        "0": "C16",
+        "1": "B15",
+        "2": "A16",
+        "3": "A18",
+        "4": "B19",
+        "5": "C18"
+      }
+    },
+    "B13": {
+      "neighbors": {
+        "0": "C12",
+        "1": "B11",
+        "2": "A12",
+        "3": "A14",
+        "4": "B15",
+        "5": "C14"
+      }
+    },
+    "B21": {
+      "neighbors": {
+        "0": "C20",
+        "1": "B19",
+        "2": "A20",
+        "3": "A22"
+      }
+    },
+    "I18": {
+      "neighbors": {
+        "0": "J17",
+        "1": "I16",
+        "2": "H17",
+        "3": "H19",
+        "4": "I20",
+        "5": "J19"
+      }
+    },
+    "J17": {
+      "neighbors": {
+        "0": "K16",
+        "1": "J15",
+        "2": "I16",
+        "3": "I18",
+        "4": "J19",
+        "5": "K18"
+      }
+    },
+    "K16": {
+      "neighbors": {
+        "0": "L15",
+        "1": "K14",
+        "2": "J15",
+        "3": "J17",
+        "4": "K18",
+        "5": "L17"
+      }
+    },
+    "K18": {
+      "neighbors": {
+        "0": "L17",
+        "1": "K16",
+        "2": "J17",
+        "3": "J19",
+        "4": "K20",
+        "5": "L19"
+      }
+    },
+    "L19": {
+      "neighbors": {
+        "0": "M18",
+        "1": "L17",
+        "2": "K18",
+        "3": "K20",
+        "4": "L21",
+        "5": "M20"
+      }
+    },
+    "M20": {
+      "neighbors": {
+        "0": "N19",
+        "1": "M18",
+        "2": "L19",
+        "3": "L21",
+        "4": "M22",
+        "5": "N21"
+      }
+    },
+    "F13": {
+      "neighbors": {
+        "0": "G12",
+        "1": "F11",
+        "2": "E12",
+        "3": "E14",
+        "4": "F15",
+        "5": "G14"
+      }
+    },
+    "G10": {
+      "neighbors": {
+        "0": "H9",
+        "1": "G8",
+        "2": "F9",
+        "3": "F11",
+        "4": "G12",
+        "5": "H11"
+      }
+    },
+    "H9": {
+      "neighbors": {
+        "0": "I8",
+        "1": "H7",
+        "2": "G8",
+        "3": "G10",
+        "4": "H11",
+        "5": "I10"
+      }
+    },
+    "J11": {
+      "neighbors": {
+        "0": "K10",
+        "1": "J9",
+        "2": "I10",
+        "3": "I12",
+        "4": "J13",
+        "5": "K12"
+      }
+    },
+    "K12": {
+      "neighbors": {
+        "0": "L11",
+        "1": "K10",
+        "2": "J11",
+        "3": "J13",
+        "4": "K14",
+        "5": "L13"
+      }
+    },
+    "L13": {
+      "neighbors": {
+        "0": "M12",
+        "1": "L11",
+        "2": "K12",
+        "3": "K14",
+        "4": "L15",
+        "5": "M14"
+      }
+    },
+    "G8": {
+      "neighbors": {
+        "0": "H7",
+        "1": "G6",
+        "2": "F7",
+        "3": "F9",
+        "4": "G10",
+        "5": "H9"
+      }
+    },
+    "H7": {
+      "neighbors": {
+        "0": "I6",
+        "1": "H5",
+        "2": "G6",
+        "3": "G8",
+        "4": "H9",
+        "5": "I8"
+      }
+    },
+    "I6": {
+      "neighbors": {
+        "0": "J5",
+        "1": "I4",
+        "2": "H5",
+        "3": "H7",
+        "4": "I8",
+        "5": "J7"
+      }
+    },
+    "G6": {
+      "neighbors": {
+        "0": "H5",
+        "1": "G4",
+        "2": "F5",
+        "3": "F7",
+        "4": "G8",
+        "5": "H7"
+      }
+    },
+    "F5": {
+      "neighbors": {
+        "0": "G4",
+        "1": "F3",
+        "2": "E4",
+        "3": "E6",
+        "4": "F7",
+        "5": "G6"
+      }
+    },
+    "F9": {
+      "neighbors": {
+        "0": "G8",
+        "1": "F7",
+        "2": "E8",
+        "3": "E10",
+        "4": "F11",
+        "5": "G10"
+      }
+    },
+    "E8": {
+      "neighbors": {
+        "0": "F7",
+        "1": "E6",
+        "2": "D7",
+        "3": "D9",
+        "4": "E10",
+        "5": "F9"
+      }
+    },
+    "E10": {
+      "neighbors": {
+        "0": "F9",
+        "1": "E8",
+        "2": "D9",
+        "3": "D11",
+        "4": "E12",
+        "5": "F11"
+      }
+    },
+    "F7": {
+      "neighbors": {
+        "0": "G6",
+        "1": "F5",
+        "2": "E6",
+        "3": "E8",
+        "4": "F9",
+        "5": "G8"
+      }
+    },
+    "E6": {
+      "neighbors": {
+        "0": "F5",
+        "1": "E4",
+        "2": "D5",
+        "3": "D7",
+        "4": "E8",
+        "5": "F7"
+      }
+    },
+    "D5": {
+      "neighbors": {
+        "0": "E4",
+        "1": "D3",
+        "2": "C4",
+        "3": "C6",
+        "4": "D7",
+        "5": "E6"
+      }
+    },
+    "C4": {
+      "neighbors": {
+        "0": "D3",
+        "1": "C2",
+        "2": "B3",
+        "3": "B5",
+        "4": "C6",
+        "5": "D5"
+      }
+    },
+    "B3": {
+      "neighbors": {
+        "0": "C2",
+        "2": "A2",
+        "3": "A4",
+        "4": "B5",
+        "5": "C4"
+      }
+    },
+    "A2": {
+      "neighbors": {
+        "4": "A4",
+        "5": "B3"
+      }
+    },
+    "C6": {
+      "neighbors": {
+        "0": "D5",
+        "1": "C4",
+        "2": "B5",
+        "3": "B7",
+        "4": "C8",
+        "5": "D7"
+      }
+    },
+    "B5": {
+      "neighbors": {
+        "0": "C4",
+        "1": "B3",
+        "2": "A4",
+        "3": "A6",
+        "4": "B7",
+        "5": "C6"
+      }
+    },
+    "A4": {
+      "neighbors": {
+        "0": "B3",
+        "1": "A2",
+        "4": "A6",
+        "5": "B5"
+      }
+    },
+    "E4": {
+      "neighbors": {
+        "0": "F3",
+        "1": "E2",
+        "2": "D3",
+        "3": "D5",
+        "4": "E6",
+        "5": "F5"
+      }
+    },
+    "F3": {
+      "neighbors": {
+        "0": "G2",
+        "1": "F1",
+        "2": "E2",
+        "3": "E4",
+        "4": "F5",
+        "5": "G4"
+      }
+    },
+    "G2": {
+      "neighbors": {
+        "0": "H1",
+        "2": "F1",
+        "3": "F3",
+        "4": "G4",
+        "5": "H3"
+      }
+    },
+    "H1": {
+      "neighbors": {
+        "3": "G2",
+        "4": "H3",
+        "5": "I2"
+      }
+    },
+    "I2": {
+      "neighbors": {
+        "0": "J1",
+        "2": "H1",
+        "3": "H3",
+        "4": "I4",
+        "5": "J3"
+      }
+    },
+    "J3": {
+      "neighbors": {
+        "0": "K2",
+        "1": "J1",
+        "2": "I2",
+        "3": "I4",
+        "4": "J5",
+        "5": "K4"
+      }
+    },
+    "J1": {
+      "neighbors": {
+        "3": "I2",
+        "4": "J3",
+        "5": "K2"
+      }
+    },
+    "K2": {
+      "neighbors": {
+        "0": "L1",
+        "2": "J1",
+        "3": "J3",
+        "4": "K4",
+        "5": "L3"
+      }
+    },
+    "L1": {
+      "neighbors": {
+        "3": "K2",
+        "4": "L3",
+        "5": "M2"
+      }
+    },
+    "M2": {
+      "neighbors": {
+        "0": "N1",
+        "2": "L1",
+        "3": "L3",
+        "4": "M4",
+        "5": "N3"
+      }
+    },
+    "L3": {
+      "neighbors": {
+        "0": "M2",
+        "1": "L1",
+        "2": "K2",
+        "3": "K4",
+        "4": "L5",
+        "5": "M4"
+      }
+    },
+    "K4": {
+      "neighbors": {
+        "0": "L3",
+        "1": "K2",
+        "2": "J3",
+        "3": "J5",
+        "4": "K6",
+        "5": "L5"
+      }
+    },
+    "N3": {
+      "neighbors": {
+        "0": "O2",
+        "1": "N1",
+        "2": "M2",
+        "3": "M4",
+        "4": "N5",
+        "5": "O4"
+      }
+    },
+    "N5": {
+      "neighbors": {
+        "0": "O4",
+        "1": "N3",
+        "2": "M4",
+        "3": "M6",
+        "4": "N7",
+        "5": "O6"
+      }
+    },
+    "M6": {
+      "neighbors": {
+        "0": "N5",
+        "1": "M4",
+        "2": "L5",
+        "3": "L7",
+        "4": "M8",
+        "5": "N7"
+      }
+    },
+    "N1": {
+      "neighbors": {
+        "3": "M2",
+        "4": "N3",
+        "5": "O2"
+      }
+    },
+    "I14": {
+      "neighbors": {
+        "0": "J13",
+        "1": "I12",
+        "2": "H13",
+        "3": "H15",
+        "4": "I16",
+        "5": "J15"
+      }
+    },
+    "J15": {
+      "neighbors": {
+        "0": "K14",
+        "1": "J13",
+        "2": "I14",
+        "3": "I16",
+        "4": "J17",
+        "5": "K16"
+      }
+    },
+    "K14": {
+      "neighbors": {
+        "0": "L13",
+        "1": "K12",
+        "2": "J13",
+        "3": "J15",
+        "4": "K16",
+        "5": "L15"
+      }
+    },
+    "J13": {
+      "neighbors": {
+        "0": "K12",
+        "1": "J11",
+        "2": "I12",
+        "3": "I14",
+        "4": "J15",
+        "5": "K14"
+      }
+    },
+    "L15": {
+      "neighbors": {
+        "0": "M14",
+        "1": "L13",
+        "2": "K14",
+        "3": "K16",
+        "4": "L17",
+        "5": "M16"
+      }
+    },
+    "M14": {
+      "neighbors": {
+        "0": "N13",
+        "1": "M12",
+        "2": "L13",
+        "3": "L15",
+        "4": "M16",
+        "5": "N15"
+      }
+    },
+    "M12": {
+      "neighbors": {
+        "0": "N11",
+        "1": "M10",
+        "2": "L11",
+        "3": "L13",
+        "4": "M14",
+        "5": "N13"
+      }
+    },
+    "M16": {
+      "neighbors": {
+        "0": "N15",
+        "1": "M14",
+        "2": "L15",
+        "3": "L17",
+        "4": "M18",
+        "5": "N17"
+      }
+    },
+    "N17": {
+      "neighbors": {
+        "0": "O16",
+        "1": "N15",
+        "2": "M16",
+        "3": "M18",
+        "5": "O18"
+      }
+    },
+    "D7": {
+      "neighbors": {
+        "0": "E6",
+        "1": "D5",
+        "2": "C6",
+        "3": "C8",
+        "4": "D9",
+        "5": "E8"
+      }
+    },
+    "C8": {
+      "neighbors": {
+        "0": "D7",
+        "1": "C6",
+        "2": "B7",
+        "3": "B9",
+        "4": "C10",
+        "5": "D9"
+      }
+    },
+    "B9": {
+      "neighbors": {
+        "0": "C8",
+        "1": "B7",
+        "2": "A8",
+        "3": "A10",
+        "4": "B11",
+        "5": "C10"
+      }
+    },
+    "C10": {
+      "neighbors": {
+        "0": "D9",
+        "1": "C8",
+        "2": "B9",
+        "3": "B11",
+        "4": "C12",
+        "5": "D11"
+      }
+    },
+    "G4": {
+      "neighbors": {
+        "0": "H3",
+        "1": "G2",
+        "2": "F3",
+        "3": "F5",
+        "4": "G6",
+        "5": "H5"
+      }
+    },
+    "I4": {
+      "neighbors": {
+        "0": "J3",
+        "1": "I2",
+        "2": "H3",
+        "3": "H5",
+        "4": "I6",
+        "5": "J5"
+      }
+    },
+    "M18": {
+      "neighbors": {
+        "0": "N17",
+        "1": "M16",
+        "2": "L17",
+        "3": "L19",
+        "4": "M20",
+        "5": "N19"
+      }
+    },
+    "L17": {
+      "neighbors": {
+        "0": "M16",
+        "1": "L15",
+        "2": "K16",
+        "3": "K18",
+        "4": "L19",
+        "5": "M18"
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 0,
+      "hex_id": "J5",
+      "index": 0,
+      "type": "city",
+      "revenue": {
+        "blue": 50
+      },
+      "slots": 2,
+      "tokens": [
+        "TP",
+        "SP"
+      ],
+      "extra_tokens": [
+        "MP"
+      ],
+      "groups": [
+
+      ],
+      "visit_cost": 1,
+      "is_offboard": false
+    },
+    {
+      "id": 1,
+      "hex_id": "N17",
+      "index": 0,
+      "type": "city",
+      "revenue": {
+        "blue": 50
+      },
+      "slots": 2,
+      "tokens": [
+        "GMO",
+        null
+      ],
+      "extra_tokens": [
+        "SP",
+        "TP"
+      ],
+      "groups": [
+
+      ],
+      "visit_cost": 1,
+      "is_offboard": false
+    },
+    {
+      "id": 2,
+      "hex_id": "L11",
+      "index": 0,
+      "type": "city",
+      "revenue": {
+        "blue": 30
+      },
+      "slots": 2,
+      "tokens": [
+        null,
+        null
+      ],
+      "extra_tokens": [
+
+      ],
+      "groups": [
+
+      ],
+      "visit_cost": 1,
+      "is_offboard": false
+    },
+    {
+      "id": 3,
+      "hex_id": "J9",
+      "index": 0,
+      "type": "town",
+      "revenue": {
+        "blue": 10
+      },
+      "slots": 0,
+      "tokens": [
+
+      ],
+      "extra_tokens": [
+
+      ],
+      "groups": [
+
+      ],
+      "visit_cost": 1,
+      "is_offboard": false
+    },
+    {
+      "id": 4,
+      "hex_id": "I10",
+      "index": 0,
+      "type": "town",
+      "revenue": {
+        "blue": 10
+      },
+      "slots": 0,
+      "tokens": [
+
+      ],
+      "extra_tokens": [
+
+      ],
+      "groups": [
+
+      ],
+      "visit_cost": 1,
+      "is_offboard": false
+    },
+    {
+      "id": 5,
+      "hex_id": "H13",
+      "index": 0,
+      "type": "city",
+      "revenue": {
+        "blue": 30
+      },
+      "slots": 2,
+      "tokens": [
+        "SLSF",
+        null
+      ],
+      "extra_tokens": [
+
+      ],
+      "groups": [
+
+      ],
+      "visit_cost": 1,
+      "is_offboard": false
+    },
+    {
+      "id": 6,
+      "hex_id": "E12",
+      "index": 0,
+      "type": "city",
+      "revenue": {
+        "blue": 40
+      },
+      "slots": 2,
+      "tokens": [
+        "SLSF",
+        "MP"
+      ],
+      "extra_tokens": [
+
+      ],
+      "groups": [
+
+      ],
+      "visit_cost": 1,
+      "is_offboard": false
+    },
+    {
+      "id": 7,
+      "hex_id": "H17",
+      "index": 0,
+      "type": "city",
+      "revenue": {
+        "blue": 30
+      },
+      "slots": 2,
+      "tokens": [
+        "SSW",
+        null
+      ],
+      "extra_tokens": [
+
+      ],
+      "groups": [
+
+      ],
+      "visit_cost": 1,
+      "is_offboard": false
+    },
+    {
+      "id": 8,
+      "hex_id": "B19",
+      "index": 0,
+      "type": "city",
+      "revenue": {
+        "blue": 30
+      },
+      "slots": 2,
+      "tokens": [
+        null,
+        null
+      ],
+      "extra_tokens": [
+
+      ],
+      "groups": [
+
+      ],
+      "visit_cost": 1,
+      "is_offboard": false
+    },
+    {
+      "id": 9,
+      "hex_id": "A22",
+      "index": 0,
+      "type": "city",
+      "revenue": {
+        "blue": 60
+      },
+      "slots": 0,
+      "tokens": [
+
+      ],
+      "extra_tokens": [
+        "IC"
+      ],
+      "groups": [
+
+      ],
+      "visit_cost": 1,
+      "is_offboard": false
+    },
+    {
+      "id": 10,
+      "hex_id": "C18",
+      "index": 0,
+      "type": "city",
+      "revenue": {
+        "blue": 60
+      },
+      "slots": 2,
+      "tokens": [
+        "MP",
+        null
+      ],
+      "extra_tokens": [
+        "GMO"
+      ],
+      "groups": [
+
+      ],
+      "visit_cost": 1,
+      "is_offboard": false
+    },
+    {
+      "id": 11,
+      "hex_id": "D17",
+      "index": 0,
+      "type": "town",
+      "revenue": {
+        "blue": 10
+      },
+      "slots": 0,
+      "tokens": [
+
+      ],
+      "extra_tokens": [
+
+      ],
+      "groups": [
+
+      ],
+      "visit_cost": 1,
+      "is_offboard": false
+    },
+    {
+      "id": 12,
+      "hex_id": "B11",
+      "index": 0,
+      "type": "city",
+      "revenue": {
+        "blue": 60
+      },
+      "slots": 3,
+      "tokens": [
+        "MKT",
+        "ATSF",
+        "SP"
+      ],
+      "extra_tokens": [
+
+      ],
+      "groups": [
+
+      ],
+      "visit_cost": 1,
+      "is_offboard": false
+    },
+    {
+      "id": 13,
+      "hex_id": "B13",
+      "index": 0,
+      "type": "town",
+      "revenue": {
+        "blue": 10
+      },
+      "slots": 0,
+      "tokens": [
+
+      ],
+      "extra_tokens": [
+
+      ],
+      "groups": [
+
+      ],
+      "visit_cost": 1,
+      "is_offboard": false
+    },
+    {
+      "id": 14,
+      "hex_id": "K16",
+      "index": 0,
+      "type": "city",
+      "revenue": {
+        "blue": 40
+      },
+      "slots": 2,
+      "tokens": [
+        "IC",
+        "SSW"
+      ],
+      "extra_tokens": [
+
+      ],
+      "groups": [
+
+      ],
+      "visit_cost": 1,
+      "is_offboard": false
+    },
+    {
+      "id": 15,
+      "hex_id": "M20",
+      "index": 0,
+      "type": "city",
+      "revenue": {
+        "blue": 40
+      },
+      "slots": 2,
+      "tokens": [
+        "GMO",
+        "IC"
+      ],
+      "extra_tokens": [
+
+      ],
+      "groups": [
+
+      ],
+      "visit_cost": 1,
+      "is_offboard": false
+    },
+    {
+      "id": 16,
+      "hex_id": "G10",
+      "index": 0,
+      "type": "town",
+      "revenue": {
+        "blue": 20
+      },
+      "slots": 0,
+      "tokens": [
+
+      ],
+      "extra_tokens": [
+
+      ],
+      "groups": [
+
+      ],
+      "visit_cost": 1,
+      "is_offboard": false
+    },
+    {
+      "id": 17,
+      "hex_id": "I10",
+      "index": 1,
+      "type": "town",
+      "revenue": {
+        "blue": 10
+      },
+      "slots": 0,
+      "tokens": [
+
+      ],
+      "extra_tokens": [
+
+      ],
+      "groups": [
+
+      ],
+      "visit_cost": 1,
+      "is_offboard": false
+    },
+    {
+      "id": 18,
+      "hex_id": "F5",
+      "index": 0,
+      "type": "city",
+      "revenue": {
+        "blue": 40
+      },
+      "slots": 2,
+      "tokens": [
+        "MKT",
+        "FW"
+      ],
+      "extra_tokens": [
+
+      ],
+      "groups": [
+
+      ],
+      "visit_cost": 1,
+      "is_offboard": false
+    },
+    {
+      "id": 19,
+      "hex_id": "F9",
+      "index": 0,
+      "type": "town",
+      "revenue": {
+        "blue": 10
+      },
+      "slots": 0,
+      "tokens": [
+
+      ],
+      "extra_tokens": [
+
+      ],
+      "groups": [
+
+      ],
+      "visit_cost": 1,
+      "is_offboard": false
+    },
+    {
+      "id": 20,
+      "hex_id": "E8",
+      "index": 0,
+      "type": "town",
+      "revenue": {
+        "blue": 20
+      },
+      "slots": 0,
+      "tokens": [
+
+      ],
+      "extra_tokens": [
+
+      ],
+      "groups": [
+
+      ],
+      "visit_cost": 1,
+      "is_offboard": false
+    },
+    {
+      "id": 21,
+      "hex_id": "D5",
+      "index": 0,
+      "type": "city",
+      "revenue": {
+        "blue": 30
+      },
+      "slots": 2,
+      "tokens": [
+        null,
+        null
+      ],
+      "extra_tokens": [
+
+      ],
+      "groups": [
+
+      ],
+      "visit_cost": 1,
+      "is_offboard": false
+    },
+    {
+      "id": 22,
+      "hex_id": "A2",
+      "index": 0,
+      "type": "city",
+      "revenue": {
+        "blue": 50
+      },
+      "slots": 0,
+      "tokens": [
+
+      ],
+      "extra_tokens": [
+        "FW"
+      ],
+      "groups": [
+
+      ],
+      "visit_cost": 1,
+      "is_offboard": false
+    },
+    {
+      "id": 23,
+      "hex_id": "J3",
+      "index": 0,
+      "type": "city",
+      "revenue": {
+        "blue": 50
+      },
+      "slots": 2,
+      "tokens": [
+        "FW",
+        "ATSF"
+      ],
+      "extra_tokens": [
+        "SSW"
+      ],
+      "groups": [
+
+      ],
+      "visit_cost": 1,
+      "is_offboard": false
+    },
+    {
+      "id": 24,
+      "hex_id": "M2",
+      "index": 0,
+      "type": "city",
+      "revenue": {
+        "blue": 30
+      },
+      "slots": 2,
+      "tokens": [
+        null,
+        null
+      ],
+      "extra_tokens": [
+
+      ],
+      "groups": [
+
+      ],
+      "visit_cost": 1,
+      "is_offboard": false
+    },
+    {
+      "id": 25,
+      "hex_id": "K4",
+      "index": 0,
+      "type": "town",
+      "revenue": {
+        "blue": 10
+      },
+      "slots": 0,
+      "tokens": [
+
+      ],
+      "extra_tokens": [
+
+      ],
+      "groups": [
+
+      ],
+      "visit_cost": 1,
+      "is_offboard": false
+    },
+    {
+      "id": 26,
+      "hex_id": "M6",
+      "index": 0,
+      "type": "city",
+      "revenue": {
+        "blue": 20
+      },
+      "slots": 1,
+      "tokens": [
+        null
+      ],
+      "extra_tokens": [
+
+      ],
+      "groups": [
+
+      ],
+      "visit_cost": 1,
+      "is_offboard": false
+    },
+    {
+      "id": 27,
+      "hex_id": "N1",
+      "index": 0,
+      "type": "city",
+      "revenue": {
+        "blue": 50
+      },
+      "slots": 1,
+      "tokens": [
+        "SP"
+      ],
+      "extra_tokens": [
+        "MKT",
+        "ATSF"
+      ],
+      "groups": [
+
+      ],
+      "visit_cost": 1,
+      "is_offboard": false
+    },
+    {
+      "id": 28,
+      "hex_id": "I14",
+      "index": 0,
+      "type": "town",
+      "revenue": {
+        "blue": 10
+      },
+      "slots": 0,
+      "tokens": [
+
+      ],
+      "extra_tokens": [
+
+      ],
+      "groups": [
+
+      ],
+      "visit_cost": 1,
+      "is_offboard": false
+    },
+    {
+      "id": 29,
+      "hex_id": "K14",
+      "index": 0,
+      "type": "town",
+      "revenue": {
+        "blue": 20
+      },
+      "slots": 0,
+      "tokens": [
+
+      ],
+      "extra_tokens": [
+
+      ],
+      "groups": [
+
+      ],
+      "visit_cost": 1,
+      "is_offboard": false
+    },
+    {
+      "id": 30,
+      "hex_id": "M14",
+      "index": 0,
+      "type": "city",
+      "revenue": {
+        "blue": 30
+      },
+      "slots": 2,
+      "tokens": [
+        null,
+        null
+      ],
+      "extra_tokens": [
+
+      ],
+      "groups": [
+
+      ],
+      "visit_cost": 1,
+      "is_offboard": false
+    },
+    {
+      "id": 31,
+      "hex_id": "B9",
+      "index": 0,
+      "type": "city",
+      "revenue": {
+        "blue": 40
+      },
+      "slots": 2,
+      "tokens": [
+        "ATSF",
+        "MKT"
+      ],
+      "extra_tokens": [
+
+      ],
+      "groups": [
+
+      ],
+      "visit_cost": 1,
+      "is_offboard": false
+    }
+  ],
+  "paths": [
+    {
+      "id": 0,
+      "hex_id": "J5",
+      "a": {
+        "type": "edge",
+        "num": 5
+      },
+      "b": {
+        "type": "node",
+        "index": 0
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 1,
+      "hex_id": "J5",
+      "a": {
+        "type": "edge",
+        "num": 0
+      },
+      "b": {
+        "type": "node",
+        "index": 0
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 2,
+      "hex_id": "J5",
+      "a": {
+        "type": "edge",
+        "num": 1
+      },
+      "b": {
+        "type": "node",
+        "index": 0
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 3,
+      "hex_id": "J5",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "node",
+        "index": 0
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 4,
+      "hex_id": "J5",
+      "a": {
+        "type": "edge",
+        "num": 3
+      },
+      "b": {
+        "type": "node",
+        "index": 0
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 5,
+      "hex_id": "K6",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "edge",
+        "num": 5
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 6,
+      "hex_id": "L7",
+      "a": {
+        "type": "edge",
+        "num": 4
+      },
+      "b": {
+        "type": "edge",
+        "num": 0
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 7,
+      "hex_id": "L7",
+      "a": {
+        "type": "edge",
+        "num": 4
+      },
+      "b": {
+        "type": "edge",
+        "num": 2
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 8,
+      "hex_id": "L9",
+      "a": {
+        "type": "edge",
+        "num": 1
+      },
+      "b": {
+        "type": "edge",
+        "num": 4
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 9,
+      "hex_id": "L11",
+      "a": {
+        "type": "edge",
+        "num": 1
+      },
+      "b": {
+        "type": "node",
+        "index": 2
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 10,
+      "hex_id": "L11",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "node",
+        "index": 2
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 11,
+      "hex_id": "L11",
+      "a": {
+        "type": "edge",
+        "num": 4
+      },
+      "b": {
+        "type": "node",
+        "index": 2
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 12,
+      "hex_id": "L11",
+      "a": {
+        "type": "edge",
+        "num": 5
+      },
+      "b": {
+        "type": "node",
+        "index": 2
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 13,
+      "hex_id": "K10",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "edge",
+        "num": 5
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 14,
+      "hex_id": "J9",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "node",
+        "index": 3
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 15,
+      "hex_id": "J9",
+      "a": {
+        "type": "node",
+        "index": 3
+      },
+      "b": {
+        "type": "edge",
+        "num": 5
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 16,
+      "hex_id": "I8",
+      "a": {
+        "type": "edge",
+        "num": 4
+      },
+      "b": {
+        "type": "edge",
+        "num": 5
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 17,
+      "hex_id": "I10",
+      "a": {
+        "type": "edge",
+        "num": 1
+      },
+      "b": {
+        "type": "node",
+        "index": 4
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 18,
+      "hex_id": "I10",
+      "a": {
+        "type": "node",
+        "index": 4
+      },
+      "b": {
+        "type": "edge",
+        "num": 4
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 19,
+      "hex_id": "I10",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "node",
+        "index": 17
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 20,
+      "hex_id": "I10",
+      "a": {
+        "type": "node",
+        "index": 17
+      },
+      "b": {
+        "type": "edge",
+        "num": 5
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 21,
+      "hex_id": "I12",
+      "a": {
+        "type": "edge",
+        "num": 3
+      },
+      "b": {
+        "type": "edge",
+        "num": 5
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 22,
+      "hex_id": "I12",
+      "a": {
+        "type": "edge",
+        "num": 3
+      },
+      "b": {
+        "type": "edge",
+        "num": 1
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 23,
+      "hex_id": "H13",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "node",
+        "index": 5
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 24,
+      "hex_id": "H13",
+      "a": {
+        "type": "edge",
+        "num": 3
+      },
+      "b": {
+        "type": "node",
+        "index": 5
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 25,
+      "hex_id": "H13",
+      "a": {
+        "type": "edge",
+        "num": 5
+      },
+      "b": {
+        "type": "node",
+        "index": 5
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 26,
+      "hex_id": "H13",
+      "a": {
+        "type": "edge",
+        "num": 0
+      },
+      "b": {
+        "type": "node",
+        "index": 5
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 27,
+      "hex_id": "G12",
+      "a": {
+        "type": "edge",
+        "num": 1
+      },
+      "b": {
+        "type": "edge",
+        "num": 4
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 28,
+      "hex_id": "G12",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "edge",
+        "num": 5
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 29,
+      "hex_id": "G12",
+      "a": {
+        "type": "edge",
+        "num": 1
+      },
+      "b": {
+        "type": "edge",
+        "num": 2
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 30,
+      "hex_id": "G12",
+      "a": {
+        "type": "edge",
+        "num": 4
+      },
+      "b": {
+        "type": "edge",
+        "num": 5
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 31,
+      "hex_id": "F11",
+      "a": {
+        "type": "edge",
+        "num": 3
+      },
+      "b": {
+        "type": "edge",
+        "num": 5
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 32,
+      "hex_id": "E12",
+      "a": {
+        "type": "edge",
+        "num": 0
+      },
+      "b": {
+        "type": "node",
+        "index": 6
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 33,
+      "hex_id": "E12",
+      "a": {
+        "type": "edge",
+        "num": 1
+      },
+      "b": {
+        "type": "node",
+        "index": 6
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 34,
+      "hex_id": "E12",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "node",
+        "index": 6
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 35,
+      "hex_id": "E12",
+      "a": {
+        "type": "edge",
+        "num": 3
+      },
+      "b": {
+        "type": "node",
+        "index": 6
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 36,
+      "hex_id": "E12",
+      "a": {
+        "type": "edge",
+        "num": 4
+      },
+      "b": {
+        "type": "node",
+        "index": 6
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 37,
+      "hex_id": "E12",
+      "a": {
+        "type": "edge",
+        "num": 5
+      },
+      "b": {
+        "type": "node",
+        "index": 6
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 38,
+      "hex_id": "G14",
+      "a": {
+        "type": "edge",
+        "num": 4
+      },
+      "b": {
+        "type": "edge",
+        "num": 1
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 39,
+      "hex_id": "G14",
+      "a": {
+        "type": "edge",
+        "num": 0
+      },
+      "b": {
+        "type": "edge",
+        "num": 2
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 40,
+      "hex_id": "G14",
+      "a": {
+        "type": "edge",
+        "num": 4
+      },
+      "b": {
+        "type": "edge",
+        "num": 2
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 41,
+      "hex_id": "G14",
+      "a": {
+        "type": "edge",
+        "num": 0
+      },
+      "b": {
+        "type": "edge",
+        "num": 1
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 42,
+      "hex_id": "G16",
+      "a": {
+        "type": "edge",
+        "num": 5
+      },
+      "b": {
+        "type": "edge",
+        "num": 1
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 43,
+      "hex_id": "H17",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "node",
+        "index": 7
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 44,
+      "hex_id": "H17",
+      "a": {
+        "type": "edge",
+        "num": 3
+      },
+      "b": {
+        "type": "node",
+        "index": 7
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 45,
+      "hex_id": "H17",
+      "a": {
+        "type": "edge",
+        "num": 4
+      },
+      "b": {
+        "type": "node",
+        "index": 7
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 46,
+      "hex_id": "H17",
+      "a": {
+        "type": "edge",
+        "num": 5
+      },
+      "b": {
+        "type": "node",
+        "index": 7
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 47,
+      "hex_id": "H19",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "edge",
+        "num": 0
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 48,
+      "hex_id": "H19",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "edge",
+        "num": 1
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 49,
+      "hex_id": "G18",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "edge",
+        "num": 5
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 50,
+      "hex_id": "F17",
+      "a": {
+        "type": "edge",
+        "num": 3
+      },
+      "b": {
+        "type": "edge",
+        "num": 5
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 51,
+      "hex_id": "E18",
+      "a": {
+        "type": "edge",
+        "num": 0
+      },
+      "b": {
+        "type": "edge",
+        "num": 3
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 52,
+      "hex_id": "D19",
+      "a": {
+        "type": "edge",
+        "num": 0
+      },
+      "b": {
+        "type": "edge",
+        "num": 3
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 53,
+      "hex_id": "D19",
+      "a": {
+        "type": "edge",
+        "num": 0
+      },
+      "b": {
+        "type": "edge",
+        "num": 2
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 54,
+      "hex_id": "C20",
+      "a": {
+        "type": "edge",
+        "num": 0
+      },
+      "b": {
+        "type": "edge",
+        "num": 2
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 55,
+      "hex_id": "C20",
+      "a": {
+        "type": "edge",
+        "num": 1
+      },
+      "b": {
+        "type": "edge",
+        "num": 3
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 56,
+      "hex_id": "B19",
+      "a": {
+        "type": "edge",
+        "num": 3
+      },
+      "b": {
+        "type": "node",
+        "index": 8
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 57,
+      "hex_id": "B19",
+      "a": {
+        "type": "edge",
+        "num": 4
+      },
+      "b": {
+        "type": "node",
+        "index": 8
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 58,
+      "hex_id": "B19",
+      "a": {
+        "type": "edge",
+        "num": 5
+      },
+      "b": {
+        "type": "node",
+        "index": 8
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 59,
+      "hex_id": "B19",
+      "a": {
+        "type": "edge",
+        "num": 0
+      },
+      "b": {
+        "type": "node",
+        "index": 8
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 60,
+      "hex_id": "A20",
+      "a": {
+        "type": "edge",
+        "num": 4
+      },
+      "b": {
+        "type": "edge",
+        "num": 0
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 61,
+      "hex_id": "A22",
+      "a": {
+        "type": "edge",
+        "num": 0
+      },
+      "b": {
+        "type": "node",
+        "index": 9
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": true,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 62,
+      "hex_id": "A22",
+      "a": {
+        "type": "edge",
+        "num": 1
+      },
+      "b": {
+        "type": "node",
+        "index": 9
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": true,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 63,
+      "hex_id": "C18",
+      "a": {
+        "type": "edge",
+        "num": 0
+      },
+      "b": {
+        "type": "node",
+        "index": 10
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 64,
+      "hex_id": "C18",
+      "a": {
+        "type": "edge",
+        "num": 1
+      },
+      "b": {
+        "type": "node",
+        "index": 10
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 65,
+      "hex_id": "C18",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "node",
+        "index": 10
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 66,
+      "hex_id": "C18",
+      "a": {
+        "type": "edge",
+        "num": 3
+      },
+      "b": {
+        "type": "node",
+        "index": 10
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 67,
+      "hex_id": "C18",
+      "a": {
+        "type": "edge",
+        "num": 4
+      },
+      "b": {
+        "type": "node",
+        "index": 10
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 68,
+      "hex_id": "C18",
+      "a": {
+        "type": "edge",
+        "num": 5
+      },
+      "b": {
+        "type": "node",
+        "index": 10
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 69,
+      "hex_id": "D17",
+      "a": {
+        "type": "edge",
+        "num": 3
+      },
+      "b": {
+        "type": "node",
+        "index": 11
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 70,
+      "hex_id": "D17",
+      "a": {
+        "type": "node",
+        "index": 11
+      },
+      "b": {
+        "type": "edge",
+        "num": 5
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 71,
+      "hex_id": "C16",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "edge",
+        "num": 4
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 72,
+      "hex_id": "B15",
+      "a": {
+        "type": "edge",
+        "num": 1
+      },
+      "b": {
+        "type": "edge",
+        "num": 4
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 73,
+      "hex_id": "B15",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "edge",
+        "num": 5
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 74,
+      "hex_id": "A14",
+      "a": {
+        "type": "edge",
+        "num": 5
+      },
+      "b": {
+        "type": "edge",
+        "num": 1
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 75,
+      "hex_id": "A12",
+      "a": {
+        "type": "edge",
+        "num": 4
+      },
+      "b": {
+        "type": "edge",
+        "num": 0
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 76,
+      "hex_id": "B11",
+      "a": {
+        "type": "edge",
+        "num": 0
+      },
+      "b": {
+        "type": "node",
+        "index": 12
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 77,
+      "hex_id": "B11",
+      "a": {
+        "type": "edge",
+        "num": 1
+      },
+      "b": {
+        "type": "node",
+        "index": 12
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 78,
+      "hex_id": "B11",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "node",
+        "index": 12
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 79,
+      "hex_id": "B11",
+      "a": {
+        "type": "edge",
+        "num": 3
+      },
+      "b": {
+        "type": "node",
+        "index": 12
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 80,
+      "hex_id": "B11",
+      "a": {
+        "type": "edge",
+        "num": 4
+      },
+      "b": {
+        "type": "node",
+        "index": 12
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 81,
+      "hex_id": "B11",
+      "a": {
+        "type": "edge",
+        "num": 5
+      },
+      "b": {
+        "type": "node",
+        "index": 12
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 82,
+      "hex_id": "B17",
+      "a": {
+        "type": "edge",
+        "num": 5
+      },
+      "b": {
+        "type": "edge",
+        "num": 1
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 83,
+      "hex_id": "B13",
+      "a": {
+        "type": "edge",
+        "num": 1
+      },
+      "b": {
+        "type": "node",
+        "index": 13
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 84,
+      "hex_id": "B13",
+      "a": {
+        "type": "node",
+        "index": 13
+      },
+      "b": {
+        "type": "edge",
+        "num": 4
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 85,
+      "hex_id": "B21",
+      "a": {
+        "type": "edge",
+        "num": 0
+      },
+      "b": {
+        "type": "edge",
+        "num": 3
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 86,
+      "hex_id": "I18",
+      "a": {
+        "type": "edge",
+        "num": 3
+      },
+      "b": {
+        "type": "edge",
+        "num": 0
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 87,
+      "hex_id": "I18",
+      "a": {
+        "type": "edge",
+        "num": 0
+      },
+      "b": {
+        "type": "edge",
+        "num": 2
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 88,
+      "hex_id": "I18",
+      "a": {
+        "type": "edge",
+        "num": 3
+      },
+      "b": {
+        "type": "edge",
+        "num": 2
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 89,
+      "hex_id": "J17",
+      "a": {
+        "type": "edge",
+        "num": 3
+      },
+      "b": {
+        "type": "edge",
+        "num": 0
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 90,
+      "hex_id": "J17",
+      "a": {
+        "type": "edge",
+        "num": 3
+      },
+      "b": {
+        "type": "edge",
+        "num": 5
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 91,
+      "hex_id": "K16",
+      "a": {
+        "type": "edge",
+        "num": 0
+      },
+      "b": {
+        "type": "node",
+        "index": 14
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 92,
+      "hex_id": "K16",
+      "a": {
+        "type": "edge",
+        "num": 1
+      },
+      "b": {
+        "type": "node",
+        "index": 14
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 93,
+      "hex_id": "K16",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "node",
+        "index": 14
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 94,
+      "hex_id": "K16",
+      "a": {
+        "type": "edge",
+        "num": 3
+      },
+      "b": {
+        "type": "node",
+        "index": 14
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 95,
+      "hex_id": "K16",
+      "a": {
+        "type": "edge",
+        "num": 4
+      },
+      "b": {
+        "type": "node",
+        "index": 14
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 96,
+      "hex_id": "K16",
+      "a": {
+        "type": "edge",
+        "num": 5
+      },
+      "b": {
+        "type": "node",
+        "index": 14
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 97,
+      "hex_id": "K18",
+      "a": {
+        "type": "edge",
+        "num": 5
+      },
+      "b": {
+        "type": "edge",
+        "num": 2
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 98,
+      "hex_id": "K18",
+      "a": {
+        "type": "edge",
+        "num": 5
+      },
+      "b": {
+        "type": "edge",
+        "num": 1
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 99,
+      "hex_id": "L19",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "edge",
+        "num": 5
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 100,
+      "hex_id": "M20",
+      "a": {
+        "type": "edge",
+        "num": 0
+      },
+      "b": {
+        "type": "node",
+        "index": 15
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 101,
+      "hex_id": "M20",
+      "a": {
+        "type": "edge",
+        "num": 1
+      },
+      "b": {
+        "type": "node",
+        "index": 15
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 102,
+      "hex_id": "M20",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "node",
+        "index": 15
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 103,
+      "hex_id": "M20",
+      "a": {
+        "type": "edge",
+        "num": 3
+      },
+      "b": {
+        "type": "node",
+        "index": 15
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 104,
+      "hex_id": "M20",
+      "a": {
+        "type": "edge",
+        "num": 4
+      },
+      "b": {
+        "type": "node",
+        "index": 15
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 105,
+      "hex_id": "M20",
+      "a": {
+        "type": "edge",
+        "num": 5
+      },
+      "b": {
+        "type": "node",
+        "index": 15
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 106,
+      "hex_id": "F13",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "edge",
+        "num": 5
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 107,
+      "hex_id": "G10",
+      "a": {
+        "type": "edge",
+        "num": 4
+      },
+      "b": {
+        "type": "node",
+        "index": 16
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 108,
+      "hex_id": "G10",
+      "a": {
+        "type": "edge",
+        "num": 0
+      },
+      "b": {
+        "type": "node",
+        "index": 16
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 109,
+      "hex_id": "G10",
+      "a": {
+        "type": "edge",
+        "num": 1
+      },
+      "b": {
+        "type": "node",
+        "index": 16
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 110,
+      "hex_id": "G10",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "node",
+        "index": 16
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 111,
+      "hex_id": "H9",
+      "a": {
+        "type": "edge",
+        "num": 3
+      },
+      "b": {
+        "type": "edge",
+        "num": 5
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 112,
+      "hex_id": "J11",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "edge",
+        "num": 5
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 113,
+      "hex_id": "K12",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "edge",
+        "num": 5
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 114,
+      "hex_id": "L13",
+      "a": {
+        "type": "edge",
+        "num": 1
+      },
+      "b": {
+        "type": "edge",
+        "num": 3
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 115,
+      "hex_id": "L13",
+      "a": {
+        "type": "edge",
+        "num": 1
+      },
+      "b": {
+        "type": "edge",
+        "num": 2
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 116,
+      "hex_id": "G8",
+      "a": {
+        "type": "edge",
+        "num": 4
+      },
+      "b": {
+        "type": "edge",
+        "num": 0
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 117,
+      "hex_id": "H7",
+      "a": {
+        "type": "edge",
+        "num": 3
+      },
+      "b": {
+        "type": "edge",
+        "num": 0
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 118,
+      "hex_id": "H7",
+      "a": {
+        "type": "edge",
+        "num": 3
+      },
+      "b": {
+        "type": "edge",
+        "num": 2
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 119,
+      "hex_id": "I6",
+      "a": {
+        "type": "edge",
+        "num": 0
+      },
+      "b": {
+        "type": "edge",
+        "num": 3
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 120,
+      "hex_id": "G6",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "edge",
+        "num": 5
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 121,
+      "hex_id": "F5",
+      "a": {
+        "type": "edge",
+        "num": 0
+      },
+      "b": {
+        "type": "node",
+        "index": 18
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 122,
+      "hex_id": "F5",
+      "a": {
+        "type": "edge",
+        "num": 1
+      },
+      "b": {
+        "type": "node",
+        "index": 18
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 123,
+      "hex_id": "F5",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "node",
+        "index": 18
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 124,
+      "hex_id": "F5",
+      "a": {
+        "type": "edge",
+        "num": 3
+      },
+      "b": {
+        "type": "node",
+        "index": 18
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 125,
+      "hex_id": "F5",
+      "a": {
+        "type": "edge",
+        "num": 4
+      },
+      "b": {
+        "type": "node",
+        "index": 18
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 126,
+      "hex_id": "F5",
+      "a": {
+        "type": "edge",
+        "num": 5
+      },
+      "b": {
+        "type": "node",
+        "index": 18
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 127,
+      "hex_id": "F9",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "node",
+        "index": 19
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 128,
+      "hex_id": "F9",
+      "a": {
+        "type": "node",
+        "index": 19
+      },
+      "b": {
+        "type": "edge",
+        "num": 5
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 129,
+      "hex_id": "E8",
+      "a": {
+        "type": "edge",
+        "num": 4
+      },
+      "b": {
+        "type": "node",
+        "index": 20
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 130,
+      "hex_id": "E8",
+      "a": {
+        "type": "edge",
+        "num": 5
+      },
+      "b": {
+        "type": "node",
+        "index": 20
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 131,
+      "hex_id": "E8",
+      "a": {
+        "type": "edge",
+        "num": 0
+      },
+      "b": {
+        "type": "node",
+        "index": 20
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 132,
+      "hex_id": "E8",
+      "a": {
+        "type": "edge",
+        "num": 1
+      },
+      "b": {
+        "type": "node",
+        "index": 20
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 133,
+      "hex_id": "E10",
+      "a": {
+        "type": "edge",
+        "num": 1
+      },
+      "b": {
+        "type": "edge",
+        "num": 4
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 134,
+      "hex_id": "F7",
+      "a": {
+        "type": "edge",
+        "num": 1
+      },
+      "b": {
+        "type": "edge",
+        "num": 3
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 135,
+      "hex_id": "E6",
+      "a": {
+        "type": "edge",
+        "num": 0
+      },
+      "b": {
+        "type": "edge",
+        "num": 3
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 136,
+      "hex_id": "E6",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "edge",
+        "num": 4
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 137,
+      "hex_id": "E6",
+      "a": {
+        "type": "edge",
+        "num": 0
+      },
+      "b": {
+        "type": "edge",
+        "num": 4
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 138,
+      "hex_id": "E6",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "edge",
+        "num": 3
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 139,
+      "hex_id": "D5",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "node",
+        "index": 21
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 140,
+      "hex_id": "D5",
+      "a": {
+        "type": "edge",
+        "num": 3
+      },
+      "b": {
+        "type": "node",
+        "index": 21
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 141,
+      "hex_id": "D5",
+      "a": {
+        "type": "edge",
+        "num": 5
+      },
+      "b": {
+        "type": "node",
+        "index": 21
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 142,
+      "hex_id": "D5",
+      "a": {
+        "type": "edge",
+        "num": 0
+      },
+      "b": {
+        "type": "node",
+        "index": 21
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 143,
+      "hex_id": "C4",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "edge",
+        "num": 5
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 144,
+      "hex_id": "B3",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "edge",
+        "num": 5
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 145,
+      "hex_id": "A2",
+      "a": {
+        "type": "edge",
+        "num": 4
+      },
+      "b": {
+        "type": "node",
+        "index": 22
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": true,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 146,
+      "hex_id": "A2",
+      "a": {
+        "type": "edge",
+        "num": 5
+      },
+      "b": {
+        "type": "node",
+        "index": 22
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": true,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 147,
+      "hex_id": "C6",
+      "a": {
+        "type": "edge",
+        "num": 0
+      },
+      "b": {
+        "type": "edge",
+        "num": 2
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 148,
+      "hex_id": "B5",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "edge",
+        "num": 5
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 149,
+      "hex_id": "B5",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "edge",
+        "num": 4
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 150,
+      "hex_id": "A4",
+      "a": {
+        "type": "edge",
+        "num": 5
+      },
+      "b": {
+        "type": "edge",
+        "num": 1
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 151,
+      "hex_id": "E4",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "edge",
+        "num": 5
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 152,
+      "hex_id": "E4",
+      "a": {
+        "type": "edge",
+        "num": 3
+      },
+      "b": {
+        "type": "edge",
+        "num": 0
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 153,
+      "hex_id": "E4",
+      "a": {
+        "type": "edge",
+        "num": 3
+      },
+      "b": {
+        "type": "edge",
+        "num": 5
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 154,
+      "hex_id": "E4",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "edge",
+        "num": 0
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 155,
+      "hex_id": "F3",
+      "a": {
+        "type": "edge",
+        "num": 0
+      },
+      "b": {
+        "type": "edge",
+        "num": 3
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 156,
+      "hex_id": "F3",
+      "a": {
+        "type": "edge",
+        "num": 0
+      },
+      "b": {
+        "type": "edge",
+        "num": 4
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 157,
+      "hex_id": "G2",
+      "a": {
+        "type": "edge",
+        "num": 0
+      },
+      "b": {
+        "type": "edge",
+        "num": 3
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 158,
+      "hex_id": "G2",
+      "a": {
+        "type": "edge",
+        "num": 0
+      },
+      "b": {
+        "type": "edge",
+        "num": 4
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 159,
+      "hex_id": "H1",
+      "a": {
+        "type": "edge",
+        "num": 3
+      },
+      "b": {
+        "type": "edge",
+        "num": 5
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 160,
+      "hex_id": "I2",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "edge",
+        "num": 5
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 161,
+      "hex_id": "I2",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "edge",
+        "num": 0
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 162,
+      "hex_id": "J3",
+      "a": {
+        "type": "edge",
+        "num": 1
+      },
+      "b": {
+        "type": "node",
+        "index": 23
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 163,
+      "hex_id": "J3",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "node",
+        "index": 23
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 164,
+      "hex_id": "J3",
+      "a": {
+        "type": "edge",
+        "num": 3
+      },
+      "b": {
+        "type": "node",
+        "index": 23
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 165,
+      "hex_id": "J3",
+      "a": {
+        "type": "edge",
+        "num": 4
+      },
+      "b": {
+        "type": "node",
+        "index": 23
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 166,
+      "hex_id": "J3",
+      "a": {
+        "type": "edge",
+        "num": 5
+      },
+      "b": {
+        "type": "node",
+        "index": 23
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 167,
+      "hex_id": "J1",
+      "a": {
+        "type": "edge",
+        "num": 5
+      },
+      "b": {
+        "type": "edge",
+        "num": 3
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 168,
+      "hex_id": "J1",
+      "a": {
+        "type": "edge",
+        "num": 5
+      },
+      "b": {
+        "type": "edge",
+        "num": 4
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 169,
+      "hex_id": "K2",
+      "a": {
+        "type": "edge",
+        "num": 0
+      },
+      "b": {
+        "type": "edge",
+        "num": 2
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 170,
+      "hex_id": "L1",
+      "a": {
+        "type": "edge",
+        "num": 3
+      },
+      "b": {
+        "type": "edge",
+        "num": 5
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 171,
+      "hex_id": "M2",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "node",
+        "index": 24
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 172,
+      "hex_id": "M2",
+      "a": {
+        "type": "edge",
+        "num": 3
+      },
+      "b": {
+        "type": "node",
+        "index": 24
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 173,
+      "hex_id": "M2",
+      "a": {
+        "type": "edge",
+        "num": 5
+      },
+      "b": {
+        "type": "node",
+        "index": 24
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 174,
+      "hex_id": "M2",
+      "a": {
+        "type": "edge",
+        "num": 0
+      },
+      "b": {
+        "type": "node",
+        "index": 24
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 175,
+      "hex_id": "L3",
+      "a": {
+        "type": "edge",
+        "num": 0
+      },
+      "b": {
+        "type": "edge",
+        "num": 3
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 176,
+      "hex_id": "K4",
+      "a": {
+        "type": "edge",
+        "num": 0
+      },
+      "b": {
+        "type": "node",
+        "index": 25
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 177,
+      "hex_id": "K4",
+      "a": {
+        "type": "node",
+        "index": 25
+      },
+      "b": {
+        "type": "edge",
+        "num": 3
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 178,
+      "hex_id": "N3",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "edge",
+        "num": 4
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 179,
+      "hex_id": "N5",
+      "a": {
+        "type": "edge",
+        "num": 1
+      },
+      "b": {
+        "type": "edge",
+        "num": 3
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 180,
+      "hex_id": "M6",
+      "a": {
+        "type": "edge",
+        "num": 0
+      },
+      "b": {
+        "type": "node",
+        "index": 26
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 181,
+      "hex_id": "M6",
+      "a": {
+        "type": "node",
+        "index": 26
+      },
+      "b": {
+        "type": "edge",
+        "num": 3
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 182,
+      "hex_id": "N1",
+      "a": {
+        "type": "edge",
+        "num": 3
+      },
+      "b": {
+        "type": "node",
+        "index": 27
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": true,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 183,
+      "hex_id": "N1",
+      "a": {
+        "type": "edge",
+        "num": 4
+      },
+      "b": {
+        "type": "node",
+        "index": 27
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": true,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 184,
+      "hex_id": "N1",
+      "a": {
+        "type": "edge",
+        "num": 5
+      },
+      "b": {
+        "type": "node",
+        "index": 27
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": true,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 185,
+      "hex_id": "I14",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "node",
+        "index": 28
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 186,
+      "hex_id": "I14",
+      "a": {
+        "type": "node",
+        "index": 28
+      },
+      "b": {
+        "type": "edge",
+        "num": 5
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 187,
+      "hex_id": "J15",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "edge",
+        "num": 5
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 188,
+      "hex_id": "K14",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "node",
+        "index": 29
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 189,
+      "hex_id": "K14",
+      "a": {
+        "type": "edge",
+        "num": 4
+      },
+      "b": {
+        "type": "node",
+        "index": 29
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 190,
+      "hex_id": "K14",
+      "a": {
+        "type": "edge",
+        "num": 5
+      },
+      "b": {
+        "type": "node",
+        "index": 29
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 191,
+      "hex_id": "K14",
+      "a": {
+        "type": "edge",
+        "num": 0
+      },
+      "b": {
+        "type": "node",
+        "index": 29
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 192,
+      "hex_id": "J13",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "edge",
+        "num": 5
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 193,
+      "hex_id": "L15",
+      "a": {
+        "type": "edge",
+        "num": 3
+      },
+      "b": {
+        "type": "edge",
+        "num": 5
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 194,
+      "hex_id": "L15",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "edge",
+        "num": 0
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 195,
+      "hex_id": "M14",
+      "a": {
+        "type": "edge",
+        "num": 1
+      },
+      "b": {
+        "type": "node",
+        "index": 30
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 196,
+      "hex_id": "M14",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "node",
+        "index": 30
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 197,
+      "hex_id": "M14",
+      "a": {
+        "type": "edge",
+        "num": 3
+      },
+      "b": {
+        "type": "node",
+        "index": 30
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 198,
+      "hex_id": "M14",
+      "a": {
+        "type": "edge",
+        "num": 4
+      },
+      "b": {
+        "type": "node",
+        "index": 30
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 199,
+      "hex_id": "M12",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "edge",
+        "num": 4
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 200,
+      "hex_id": "M16",
+      "a": {
+        "type": "edge",
+        "num": 5
+      },
+      "b": {
+        "type": "edge",
+        "num": 1
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 201,
+      "hex_id": "N17",
+      "a": {
+        "type": "edge",
+        "num": 5
+      },
+      "b": {
+        "type": "node",
+        "index": 1
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 202,
+      "hex_id": "N17",
+      "a": {
+        "type": "edge",
+        "num": 0
+      },
+      "b": {
+        "type": "node",
+        "index": 1
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 203,
+      "hex_id": "N17",
+      "a": {
+        "type": "edge",
+        "num": 1
+      },
+      "b": {
+        "type": "node",
+        "index": 1
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 204,
+      "hex_id": "N17",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "node",
+        "index": 1
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 205,
+      "hex_id": "N17",
+      "a": {
+        "type": "edge",
+        "num": 3
+      },
+      "b": {
+        "type": "node",
+        "index": 1
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 206,
+      "hex_id": "D7",
+      "a": {
+        "type": "edge",
+        "num": 0
+      },
+      "b": {
+        "type": "edge",
+        "num": 3
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 207,
+      "hex_id": "C8",
+      "a": {
+        "type": "edge",
+        "num": 0
+      },
+      "b": {
+        "type": "edge",
+        "num": 3
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 208,
+      "hex_id": "C8",
+      "a": {
+        "type": "edge",
+        "num": 0
+      },
+      "b": {
+        "type": "edge",
+        "num": 4
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 209,
+      "hex_id": "B9",
+      "a": {
+        "type": "edge",
+        "num": 0
+      },
+      "b": {
+        "type": "node",
+        "index": 31
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 210,
+      "hex_id": "B9",
+      "a": {
+        "type": "edge",
+        "num": 1
+      },
+      "b": {
+        "type": "node",
+        "index": 31
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 211,
+      "hex_id": "B9",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "node",
+        "index": 31
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 212,
+      "hex_id": "B9",
+      "a": {
+        "type": "edge",
+        "num": 3
+      },
+      "b": {
+        "type": "node",
+        "index": 31
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 213,
+      "hex_id": "B9",
+      "a": {
+        "type": "edge",
+        "num": 4
+      },
+      "b": {
+        "type": "node",
+        "index": 31
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 214,
+      "hex_id": "B9",
+      "a": {
+        "type": "edge",
+        "num": 5
+      },
+      "b": {
+        "type": "node",
+        "index": 31
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 215,
+      "hex_id": "C10",
+      "a": {
+        "type": "edge",
+        "num": 3
+      },
+      "b": {
+        "type": "edge",
+        "num": 5
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 216,
+      "hex_id": "C10",
+      "a": {
+        "type": "edge",
+        "num": 3
+      },
+      "b": {
+        "type": "edge",
+        "num": 1
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 217,
+      "hex_id": "G4",
+      "a": {
+        "type": "edge",
+        "num": 1
+      },
+      "b": {
+        "type": "edge",
+        "num": 3
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 218,
+      "hex_id": "I4",
+      "a": {
+        "type": "edge",
+        "num": 5
+      },
+      "b": {
+        "type": "edge",
+        "num": 0
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 219,
+      "hex_id": "M18",
+      "a": {
+        "type": "edge",
+        "num": 0
+      },
+      "b": {
+        "type": "edge",
+        "num": 2
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 220,
+      "hex_id": "M18",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "edge",
+        "num": 4
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 221,
+      "hex_id": "M18",
+      "a": {
+        "type": "edge",
+        "num": 0
+      },
+      "b": {
+        "type": "edge",
+        "num": 4
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    },
+    {
+      "id": 222,
+      "hex_id": "L17",
+      "a": {
+        "type": "edge",
+        "num": 2
+      },
+      "b": {
+        "type": "edge",
+        "num": 5
+      },
+      "track": "broad",
+      "lanes": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "terminal": false,
+      "ignore": false,
+      "junction_id": null
+    }
+  ],
+  "junctions": [
+
+  ],
+  "converging_exits": {
+    "L7": [
+      4
+    ],
+    "I12": [
+      3
+    ],
+    "G12": [
+      1,
+      4,
+      2,
+      5
+    ],
+    "G14": [
+      4,
+      1,
+      0,
+      2
+    ],
+    "H19": [
+      2
+    ],
+    "D19": [
+      0
+    ],
+    "I18": [
+      3,
+      0,
+      2
+    ],
+    "J17": [
+      3
+    ],
+    "K18": [
+      5
+    ],
+    "L13": [
+      1
+    ],
+    "H7": [
+      3
+    ],
+    "E6": [
+      0,
+      3,
+      2,
+      4
+    ],
+    "B5": [
+      2
+    ],
+    "E4": [
+      2,
+      5,
+      3,
+      0
+    ],
+    "F3": [
+      0
+    ],
+    "G2": [
+      0
+    ],
+    "I2": [
+      2
+    ],
+    "J1": [
+      5
+    ],
+    "C8": [
+      0
+    ],
+    "C10": [
+      3
+    ],
+    "M18": [
+      0,
+      2,
+      4
+    ]
+  },
+  "trains": [
+    {
+      "id": "12-0",
+      "name": "12",
+      "distance": 12,
+      "price": 1100,
+      "local": false
+    }
+  ],
+  "start_nodes": [
+    0,
+    1,
+    9,
+    10,
+    12,
+    22,
+    23,
+    27,
+    6,
+    14,
+    15,
+    18,
+    31,
+    2,
+    5,
+    7,
+    8,
+    21,
+    24,
+    30,
+    16,
+    20,
+    26,
+    29,
+    3,
+    4,
+    11,
+    13,
+    17,
+    19,
+    25,
+    28
+  ],
+  "static_routes": [
+
+  ],
+  "bonuses": [
+    {
+      "type": "destination",
+      "node": 1
+    }
+  ],
+  "config": {
+    "path_timeout_ms": 30000,
+    "route_timeout_ms": 10000,
+    "route_limit": 10000,
+    "train_autoroute_groups": null
+  }
+}

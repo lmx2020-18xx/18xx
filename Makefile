@@ -58,6 +58,9 @@ prod_deploy : clean
 tag:
 	./scripts/tag_deployment.sh $(CONTAINER_COMPOSE)
 
+wasm:
+	$(CONTAINER_COMPOSE) exec rack rake wasm
+
 style:
 	$(CONTAINER_COMPOSE) exec rack rubocop -A
 

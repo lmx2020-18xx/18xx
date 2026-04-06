@@ -1,0 +1,84 @@
+{
+  "corporation_id": "PRR",
+  "current_phase": "green",
+  "no_blocking": false,
+
+  "hexes": {
+    "A1": { "neighbors": { "1": "B2" } },
+    "B2": { "neighbors": { "4": "A1", "0": "C1", "2": "C3" } },
+    "C1": { "neighbors": { "3": "B2" } },
+    "C3": { "neighbors": { "5": "B2", "2": "D4" } },
+    "D4": { "neighbors": { "5": "C3" } }
+  },
+
+  "nodes": [
+    { "id": 0, "hex_id": "A1", "index": 0, "type": "city",
+      "revenue": { "green": 40 },
+      "slots": 2, "tokens": ["PRR", null], "groups": [], "visit_cost": 1, "is_offboard": false },
+    { "id": 1, "hex_id": "B2", "index": 0, "type": "city",
+      "revenue": { "green": 30 },
+      "slots": 2, "tokens": ["B&O", "NYC"], "groups": [], "visit_cost": 1, "is_offboard": false },
+    { "id": 2, "hex_id": "C1", "index": 0, "type": "city",
+      "revenue": { "green": 50 },
+      "slots": 1, "tokens": [null], "groups": [], "visit_cost": 1, "is_offboard": false },
+    { "id": 3, "hex_id": "C3", "index": 0, "type": "town",
+      "revenue": { "green": 10 },
+      "slots": 0, "tokens": [], "groups": [], "visit_cost": 1, "is_offboard": false },
+    { "id": 4, "hex_id": "D4", "index": 0, "type": "offboard",
+      "revenue": { "green": 60 },
+      "slots": 0, "tokens": [], "groups": [], "visit_cost": 1, "is_offboard": true }
+  ],
+
+  "paths": [
+    { "id": 0, "hex_id": "A1",
+      "a": { "type": "node", "index": 0 },
+      "b": { "type": "edge", "num": 1 },
+      "track": "broad", "lanes": [[1,0],[1,0]], "terminal": false, "ignore": false },
+    { "id": 1, "hex_id": "B2",
+      "a": { "type": "edge", "num": 4 },
+      "b": { "type": "node", "index": 1 },
+      "track": "broad", "lanes": [[1,0],[1,0]], "terminal": false, "ignore": false },
+    { "id": 2, "hex_id": "B2",
+      "a": { "type": "node", "index": 1 },
+      "b": { "type": "edge", "num": 0 },
+      "track": "broad", "lanes": [[1,0],[1,0]], "terminal": false, "ignore": false },
+    { "id": 3, "hex_id": "C1",
+      "a": { "type": "edge", "num": 3 },
+      "b": { "type": "node", "index": 2 },
+      "track": "broad", "lanes": [[1,0],[1,0]], "terminal": false, "ignore": false },
+    { "id": 4, "hex_id": "B2",
+      "a": { "type": "node", "index": 1 },
+      "b": { "type": "edge", "num": 2 },
+      "track": "broad", "lanes": [[1,0],[1,0]], "terminal": false, "ignore": false },
+    { "id": 5, "hex_id": "C3",
+      "a": { "type": "edge", "num": 5 },
+      "b": { "type": "node", "index": 3 },
+      "track": "broad", "lanes": [[1,0],[1,0]], "terminal": false, "ignore": false },
+    { "id": 6, "hex_id": "C3",
+      "a": { "type": "node", "index": 3 },
+      "b": { "type": "edge", "num": 2 },
+      "track": "broad", "lanes": [[1,0],[1,0]], "terminal": false, "ignore": false },
+    { "id": 7, "hex_id": "D4",
+      "a": { "type": "edge", "num": 5 },
+      "b": { "type": "node", "index": 4 },
+      "track": "broad", "lanes": [[1,0],[1,0]], "terminal": false, "ignore": false }
+  ],
+
+  "junctions": [],
+  "converging_exits": {},
+
+  "trains": [
+    { "id": "4-0", "name": "4", "distance": 4, "price": 300, "local": false },
+    { "id": "2-0", "name": "2", "distance": 2, "price": 100, "local": false }
+  ],
+
+  "start_nodes": [0, 2, 4, 3, 1],
+  "static_routes": [],
+
+  "config": {
+    "path_timeout_ms": 5000,
+    "route_timeout_ms": 5000,
+    "route_limit": 1000,
+    "train_autoroute_groups": null
+  }
+}

@@ -29,7 +29,7 @@ class Api < Roda
     csp.style_src :self, :unsafe_inline, 'fonts.googleapis.com', 'cdn.jsdelivr.net'
     csp.font_src :self, 'fonts.gstatic.com'
     csp.form_action :self
-    csp.script_src :self, :unsafe_inline, 'cdn.jsdelivr.net'
+    csp.script_src :self, :unsafe_inline, 'cdn.jsdelivr.net', :wasm_unsafe_eval
     csp.connect_src :self
     csp.base_uri :none
     csp.frame_ancestors :none
